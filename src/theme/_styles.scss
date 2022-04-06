@@ -1,0 +1,40 @@
+@use "~src/@np-components/styles/mixins/np-audio-mixins" as audio;
+@import "variables";
+
+:root {
+  // np-audio-setup
+  --np-device-container-margin: .5rem;
+  --np-device-frame-border: 1rem;
+  --np-pad-icon-color-rgb: 255, 200, 34;
+
+  // Ionic Variables and Theming. For more info, please see: http://ionicframework.com/docs/theming/
+  // minimal setup
+  // Text and Background
+  --ion-text-color: #afafaf;
+  --ion-text-color-rgb: 175, 175, 175;
+  --ion-background-color: #2b2b2b;
+  --ion-overlay-background-color: #2b2b2b;
+  --ion-tab-bar-color-activated: #de8b27;
+
+  // primary
+  --ion-color-primary: #e0e0e0;
+  --ion-color-primary-rgb: 224, 224, 224;
+
+  // secondary
+  --ion-color-secondary: #de8b27;
+  --ion-color-secondary-rgb: 12, 209, 232;
+
+}
+
+html, body {
+  @include audio.np-device-frame;
+}
+
+.theory-text {
+  padding: 1rem;
+
+  pre {
+    white-space: pre-line;
+  }
+}
+

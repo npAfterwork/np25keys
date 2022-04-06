@@ -1,0 +1,7 @@
+{
+  "name": "np-Spielzettel",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
