@@ -1,0 +1,187 @@
+{
+  "ROUTES":      {
+    "home":     "Home",
+    "practice": "Practice",
+    "freeplay": "Free Play",
+    "theory":   "Theory",
+    "settings": "Settings",
+    "lessons":  "Lessons"
+  },
+  "PAGES":       {
+    "home":         "Welcome...",
+    "home_sub":     "...to the world of tomorrow",
+    "theory":       "Theory",
+    "theory_sub":   "...is a good start",
+    "practice":     "Practice",
+    "practice_sub": "...makes the master",
+    "freeplay":     "Free play",
+    "freeplay_sub": "...dont criticize I improvise",
+    "lessons":      "Lessons",
+    "lessons_sub":  "...learnt"
+  },
+  "DISPLAY":     {
+    "playing": "playing"
+  },
+  "DIALOGS":     {
+    "menuhide": "To show the toolbar again drag out the menu from the left or the options from the right"
+  },
+
+  "INSTRUMENTS":  {
+    "piano":  "Upright piano KW",
+    "notyet": "Not Yet"
+  },
+  "LESSONS": {
+    "bundle": "Bundle: ",
+    "lesson": "Lesson: ",
+    "part": "Section: ",
+    "DIR": {
+      "ascending":"ascending",
+      "descending":"descending",
+      "both":"up then down"
+    },
+    "HANDS": {
+      "left":"left hand",
+      "right":"right hand",
+      "both":"both hands"
+    },
+    "SIZE": {
+      "once":"one octave",
+      "full":"two octaves"
+    },
+    "FREEPLAY": {
+      "name": "Free play",
+      "bundlename": "Free play"
+    }
+  },
+  "PADS":        {
+    "restart":      "PADS.restart",
+    "loop":         "PADS.loop",
+    "next":         "PADS.next",
+    "prev":         "PADS.prev",
+    "metronome":    "PADS.metronome",
+    "lessons":      "Lessons",
+    "lessons_sub":  "The lessons overview",
+    "options":      "Settings",
+    "options_sub":  "Configure UI and audio",
+    "theory":       "Theory",
+    "theory_sub":   "Small knowledgebase",
+    "freeplay":     "Free play",
+    "freeplay_sub": "Let's play for fun",
+    "practice":     "Practice",
+    "practice_sub": "Practice a lesson",
+    "menu":         "Menu",
+    "menu_sub":     "Open the menu",
+    "home":         "XXXXX"
+  },
+
+  "OPTIONS":     {
+    "tabroll":   "UI",
+    "tabaudio":  "Audio",
+    "tabcommon": "Settings",
+    "COMMON":    {
+      "title":    "Settings",
+      "subtitle": "...application wide options",
+      "language": "Language",
+      "lang_en":  "English",
+      "lang_de":  "German"
+    },
+    "EXTRA":     {
+      "title":           "Extras",
+      "subtitle":        "...uncommon options",
+      "pianoroll":       "The Pianoroll Panel",
+      "pianoroll_sub":   "You can turn off the piano roll but then you dont see it anymore",
+      "fullscreen":      "Fullsrceen Frame",
+      "fullscreen_sub":  "If you are running on a very small device you can turn on the compact frame mode to gain more space",
+      "scanlines":       "Scanlines on the displays",
+      "scanlines_sub":   "I have a feeling the cost a lot of rendering power, so if you have problems turn them off",
+      "maindisplay":     "The Main Display Panel",
+      "maindisplay_sub": "You can turn off the main display but you will loose most of the displayed informations",
+      "mpcpadssize":     "Not yet",
+      "mpcpadssize_sub": "Not yet",
+      "playing":        "Show pressing animation",
+      "playing_sub":    "Visuallze that the key is pressed when a midi event is received"
+
+    },
+    "UI":        {
+      "title":            "Panels",
+      "subtitle":         "...hide and show",
+      "toolbar":          "Title with Toolbar",
+      "toolbar_sub":      "The toolbar is not really needed you can drag the menu in from the side",
+      "mpcpads":          "The control panel for the lesson",
+      "mpcpads_sub":      "You can still practice but you can not navigate or restart a lesson anymore",
+      "infodisplays":     "Small Status Displays",
+      "infodisplays_sub": "They show the current lesson info and help with the lessons navigation",
+      "cover":            "The pianoroll cover panel",
+      "cover_sub":        "Can be turned off without problems. Just a gimick that looks good imho.",
+      "notedisplay":      "Additional pianoroll display",
+      "notedisplay_sub":  "Shows the current lessons info as color blocks and has only informative value."
+    },
+    "PIANOROLL": {
+      "title":          "Pianoroll",
+      "subtitle":       "...on the keys",
+      "mode":           "OPTIONS.PIANOROLL.mode",
+      "lower":          "OPTIONS.PIANOROLL.lower",
+      "upper":          "OPTIONS.PIANOROLL.upper",
+      "twentyfive":     "OPTIONS.PIANOROLL.twentyfive",
+      "notes":          "The notes names",
+      "notes_sub":      "Show the note as text on each key",
+      "octave":         "The notes octaves",
+      "octave_sub":     "Add the octave to the name",
+      "fingerset":      "Fingerset",
+      "fingerset_sub":  "Show the fingerset on each key. (If the lesson has it available)",
+      "velocity":       "Velocity",
+      "velocity_sub":   "Show the velocity on each key",
+      "lesson":         "Color the keys",
+      "lesson_sub":     "Color the next notes from the lesson on the keys",
+      "validation":     "OPTIONS.PIANOROLL.validation",
+      "validation_sub": "OPTIONS.PIANOROLL.validation_sub"
+    },
+    "AUDIO":     {
+      "title":        "Audio",
+      "titlemidi":    "MIDI",
+      "subtitle":     "...sound out",
+      "subtitlemidi": "...data in",
+      "instrument":   "Current Instrument",
+      "mute":         "Disable Audio",
+      "mute_sub":     "Turns off all sound output",
+      "midi":         "AUDIO.OPTIONS.midi",
+      "volume":       "Volume",
+      "volume_sub":   "The output volume. Adjust to lower if it sounds strange",
+      "metrovol":       "Metronome Volume",
+      "metrovol_sub":   "Independent metronome output volume. Adjust to lower if it sounds strange",
+      "metrospeed":       "Metronome Speed in BPM",
+      "metrospeed_sub":   "Set the speed in beats per minute. So 60 BPM is one hit each second."
+    }
+  },
+
+  "DEVICE":      {
+    "manufacturer": "Manufacturer",
+    "version":      "Version",
+    "id":           "Device-ID",
+    "name":         "Name",
+    "connection":   "Connection",
+    "event":        "Last Event"
+  },
+  "NOTES":       {
+    "names":      [
+      "C",
+      "C♯",
+      "D",
+      "D♯",
+      "E",
+      "F",
+      "F♯",
+      "G",
+      "G♯",
+      "A",
+      "A♯",
+      "B"
+    ],
+    "sharp":      "-sharp",
+    "flat":       "-flat",
+    "flat_sign":  "♭",
+    "sharp_sign": "♯",
+    "major":      "Major",
+    "minor":      "Minor"
+  }
+}
