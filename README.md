@@ -2,6 +2,8 @@ np25keys
 =====
 I played around with Web-MIDI and a custom UI Design and created a keyboard trainer application based on Ionic 5.
 
+>Live-Demo: https://npafterwork.github.io/np25keys/
+
 Upright piano KW (sounds)
 ====
 
