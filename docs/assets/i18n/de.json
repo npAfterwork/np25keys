@@ -1,0 +1,22 @@
+{
+  "DEVICE": {
+    "manufacturer": "Hersteller",
+    "version":      "Version",
+    "id":           "Geräte-ID",
+    "name":         "Name",
+    "connection":   "Verbindung",
+    "event":        "Letzter Event"
+  },
+  "NOTES": {
+    "names": ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "H"],
+    "sharp": "is",
+    "flat": "es",
+    "flat_sign": "♭",
+    "sharp_sign": "♯",
+    "major": "Dur",
+    "minor": "Moll"
+  },
+  "CHORDS": {
+
+  }
+}
