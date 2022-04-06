@@ -1,0 +1,23 @@
+// this is a shadow dom problem see web for directive on ion-content....
+// https://github.com/w3c/csswg-drafts/issues/4530
+// should work like this
+ion-content::part(scroll) {
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: var(--ion-color-step-150);
+  }
+
+  &::-webkit-scrollbar-corner {
+    background: var(--ion-color-step-150);
+  }
+}
+// svgs inside (shadow dom) display title tooltip => whole icon no pointer events
+ion-icon {
+  pointer-events: none;
+  vertical-align: middle;
+}

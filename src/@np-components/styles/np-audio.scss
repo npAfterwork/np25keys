@@ -1,0 +1,86 @@
+@use "mixins/np-audio-mixins" as audio;
+@use "mixins/np-mixins" as mixins;
+@use "np-variables" as var;
+
+// Setup global styles
+
+ion-content {
+  --background: transparent;
+}
+
+* {
+  user-select: none;
+}
+
+// Setup basic audio css variables
+:root {
+  --np-pad-light-rgb: 255, 0, 0;
+  --np-pad-text-color-rgb: 255, 200, 34;
+}
+
+// np audio classes
+.np-hr {
+  @include audio.np-device-panel();
+  width: 100%;
+  height: .5rem;
+  min-height: .5rem;
+  max-height: .5rem;
+
+  &.with-margin {
+    margin: 1rem 0;
+  }
+}
+
+.np-audio-device-app {
+  @include audio.np-device-frame();
+  @include audio.lochblech();
+}
+.np-audio-device-panel{
+  @include audio.np-device-panel();
+}
+.np-audio-device-panel-inlay{
+  @include audio.np-device-panel-inlay();
+}
+
+.np-close-btn {
+  box-shadow: inset 1px 1px 7px 0 #050505, 0 0 2px 2px #000, 0 0 4px 2px #777;
+  border: 1px solid #050505;
+  border-radius: 5px;
+  background: red;
+  color: white;
+  max-width: 40px;
+  height: 40px;
+  margin: 3px;
+
+  ion-icon {
+    min-width: 40px;
+  }
+
+  --color: white;
+}
+
+.np-title {
+  letter-spacing: -2px;
+  font-weight: bold;
+  font-size: 32px;
+  text-shadow: 4px 4px 4px black;
+  color: antiquewhite;
+}
+
+.np-subline {
+  text-align: right;
+  letter-spacing: -1.5px;
+  font-weight: bold;
+  font-size: 22px;
+  text-shadow: 4px 4px 4px black;
+  color: #895515;
+}
+
+.np-brand {
+  letter-spacing: -3.5px;
+  font-weight: bold;
+  font-size: 36px;
+  text-shadow: 4px 4px 4px black;
+  color: antiquewhite;
+}
+

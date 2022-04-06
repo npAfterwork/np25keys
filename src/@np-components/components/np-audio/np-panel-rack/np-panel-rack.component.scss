@@ -1,0 +1,39 @@
+@use "../../../styles/mixins/np-mixins" as mixins;
+@use "../../../styles/mixins/np-audio-mixins" as audio;
+
+:host {
+  height: 100%;
+  flex: 1;
+
+  // TODO: css layouting
+  p.np-spacer {
+    margin: 0;
+    padding: .25rem
+  }
+// todo: not working
+  &.np-fullscreen {
+    --np-device-container-margin: 0;
+    --np-device-frame-border: 0;
+  }
+  .np-device-frame {
+    @include mixins.np-flex-col(null, null, null, 100%, 100%);
+
+    padding: var(--np-device-frame-border, 1rem);
+    padding-top: var(--np-device-frame-border-top, 1rem);
+
+    margin: 0 auto;
+    max-width: var(--np-device-frame-max-width, 1024px);
+    overflow: hidden;
+
+    .np-device-frame-scroll-area {
+      @include mixins.np-scroll(); // @include mixins.np-scroll(overlay); prevents resize but is an overlay
+      @include audio.np-device-panel-inlay();
+
+      .np-device-container {
+        @include mixins.np-flex-col(null, null, null, null, 100%);
+        min-width: var(--np-device-container-min-width, 300px);
+        padding: var(--np-device-container-margin, 1rem);
+      }
+    }
+  }
+}

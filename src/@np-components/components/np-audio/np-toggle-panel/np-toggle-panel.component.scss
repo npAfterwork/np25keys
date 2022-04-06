@@ -1,0 +1,45 @@
+@use "../../../styles/mixins/np-audio-mixins" as audio;
+@use "../../../styles/mixins/np-mixins" as mixins;
+
+:host-context(.connected) {
+  .keyboard {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+
+:host {
+  @include audio.np-device-panel();
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  margin: 10px auto 0;
+  padding: 0 1rem 1rem;
+
+  width: 100%;
+
+  .np-hr {
+    margin-top: 0;
+  }
+
+  .np-labels {
+    @include mixins.np-flex-row(space-between, flex-end, wrap);
+    padding-right: .5rem;
+  }
+
+  .np-standout {
+    position: absolute;
+    top: -20px;
+  }
+
+  .np-title-placeholder {
+    opacity: 0;
+    line-height: 0;
+    white-space: nowrap;
+    height: 1rem;
+  }
+
+
+}

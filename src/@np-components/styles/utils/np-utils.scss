@@ -1,0 +1,27 @@
+@use "../mixins/np-mixins" as mixins;
+
+:root {
+  --np-scrollbar-bg-color: var(--ion-background-color);
+  --np-scrolbar-thumb-color: #2b2b2b;
+}
+
+div.scroll {
+ @include mixins.np-scroll();
+}
+
+.np-clickable {
+  @include mixins.np-clickable();
+}
+
+[np-no-margin] {
+  margin:0;
+}
+[np-margin-bot]{
+  margin-bottom: 1rem;
+}
+[np-margin-bot-sm]{
+  margin-bottom: .5rem;
+}
+[np-margin-bot-xs]{
+  margin-bottom: .25rem;
+}

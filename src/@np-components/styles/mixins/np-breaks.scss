@@ -1,0 +1,88 @@
+// epsilon for areas
+$np-break-epsilon: .02 !default;
+
+$np-break-watch: 340px !global !default; // end watch -> start mobile
+$np-break-mobile-sm: 425px !global !default; // end mobile-sm
+$np-break-mobile-md: 640px !global !default; // end mobile-md -> start tablet
+$np-break-mobile: 768px !global !default; // end mobile-md -> start tablet
+$np-break-tablet-sm: 1024px !global !default; // end tablet-sm
+$np-break-tablet: 1280px !global !default; // end tablet -> start desktop
+$np-break-desktop-sm: 1600px !global !default; // end desktop-sm
+$np-break-desktop: 1920px !global !default; // end desktop -> start retina
+
+
+$np-break-height-sm: 480px;
+$np-break-height-md: 640px;
+
+// inside-watch       0 - 340
+// inside-mobile-sm   0 - 425
+// inside-mobile-md   0 - 640
+// inside-mobile      0 - 1024
+// inside-tablet      0 - 1280
+// inside-desktop-sm  0 - 1600
+// inside-desktop     0 - 1920
+// inside-retina      1920+
+//<editor-fold desc="*** Breaks inside ***">
+
+@mixin inside-watch {
+  @media (max-width: #{$np-break-watch}) {
+    @content;
+  }
+}
+@mixin inside-mobile-sm {
+  @media (max-width: #{$np-break-mobile-sm}) {
+    @content;
+  }
+}
+@mixin inside-mobile-md {
+  @media (max-width: #{$np-break-mobile-md}) {
+    @content;
+  }
+}
+@mixin inside-mobile {
+  @media (max-width: #{$np-break-mobile}) {
+    @content;
+  }
+}
+@mixin inside-tablet-sm {
+  @media (max-width: #{$np-break-tablet-sm}) {
+    @content;
+  }
+}
+@mixin inside-tablet {
+  @media (max-width: #{$np-break-tablet}) {
+    @content;
+  }
+}
+
+@mixin inside-desktop-sm {
+  @media (max-width: #{$np-break-desktop-sm}) {
+    @content;
+  }
+}
+@mixin inside-desktop {
+  @media (max-width: #{$np-break-desktop}) {
+    @content;
+  }
+}
+
+@mixin inside-retina {
+  @media (min-width: #{$np-break-desktop + $np-break-epsilon}) {
+    @content;
+  }
+}
+
+
+//</editor-fold>
+
+@mixin inside-height-small {
+  @media (max-height: #{$np-break-height-sm}) {
+    @content;
+  }
+}
+
+@mixin inside-height-medium {
+  @media (max-height: #{$np-break-height-md}) {
+    @content;
+  }
+}

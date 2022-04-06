@@ -1,0 +1,10 @@
+<div *ngFor="let key of keys"
+     [style.--np-velocity]="key.velocity" [style.--np-key-color]="key.color"
+     [class]="key.sharp ? 'note black': 'note white'"
+     [class.pressed]="pressedByEvent && key.pressed"
+     [class.lit]="lightup && key.lit"
+     (mousedown)="keyPressedByPointer(key)"
+>
+    <span class="note-name" *ngIf="notes">{{key.noteName}}{{octave ? key.octave : ''}}</span>
+    <span class="note-finger-set" *ngIf="fingerset &&  (key.fingerset > 0)">{{key.fingerset}}</span>
+</div>

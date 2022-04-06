@@ -1,0 +1,377 @@
+@use "sass:math";
+
+$white-key-max-width: var(--np-white-key-max-width, 40em);
+
+
+@mixin np-device-panel() {
+  border-radius: 3px;
+  background: linear-gradient(23deg, #121212 37%, #242424 76%);
+  box-shadow: 0 1px 4px rgb(0 0 0 / 30%), inset 0 0 40px rgb(0 0 0 / 10%), #585858 0 1px 3px 0 inset, #000000 0 4px 5px 2px;
+}
+
+@mixin np-device-frame() {
+  border-radius: 3px;
+  background: linear-gradient(23deg, #050505 37%, #242424 76%);
+  box-shadow: 0 1px 4px rgb(0 0 0 / 30%), inset 0 0 40px rgb(0 0 0 / 10%), #585858 0 1px 3px 0 inset, #000000 0 4px 5px 2px;
+
+}
+
+@mixin np-device-panel-inlay() {
+  box-shadow: inset 1px 1px 7px 0 #050505, 0 0 2px 2px #000, 0 0 4px 2px #777;
+  border: 1px solid #050505;
+  border-radius: 5px;
+  margin: .25rem;
+  padding: .25rem;
+  background: #181816;
+}
+
+// scanlines for displays
+@mixin np-scanlines() {
+  &:after {
+    background: linear-gradient(
+                    to bottom,
+                    rgba(255, 255, 255, 0),
+                    rgba(255, 255, 255, 0) 50%,
+                    rgba(0, 0, 0, 0.2) 70%,
+                    rgba(0, 0, 0, 0.6)
+    );
+    background-size: 100% 0.3rem;
+    z-index: 2;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+}
+
+// backlight for displays
+@mixin np-backlight() {
+  &:before {
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center,
+            rgba(27, 212, 89, 1) 0%,
+            rgba(27, 212, 89, 0.88) 58%,
+            rgba(21, 235, 92, 0.57) 80%,
+            rgba(19, 94, 29, 0.27) 93%,
+            rgba(10, 23, 12, 0) 100%);
+    opacity: 0.05;
+    pointer-events: none;
+    position: absolute;
+    z-index: 3;
+  }
+}
+
+
+@mixin keyboard-size() {
+  height: 100%;
+  width: 100%;
+  max-width: calc(var(--np-key-count-w) * #{$white-key-max-width});
+  position: relative;
+  display: flex;
+  justify-content: flex-end; // this somehow gets rid of a 1px gap.. (rounding issues i guess)
+}
+
+@mixin key-sizes() {
+  .note {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+
+    &.white {
+      z-index: 1;
+      height: 100%;
+      width: calc(100% / var(--np-key-count-w));
+      max-width: $white-key-max-width;
+    }
+
+    &.black {
+      z-index: 2;
+      height: 61.8%; // golden cut between black and white keys
+      width: calc(100% / (var(--np-key-count-w) * 2)); // black key are half the width of the whites
+      max-width: #{$white-key-max-width / 2};
+      // max does not work but Max does ...?
+      margin: 0 Max(#{$white-key-max-width / -2}, calc(100% / (var(--np-key-count-w) * 2) / -2)); // half width as negative margin
+    }
+  }
+}
+
+@mixin key-styles-piano() {
+  .note {
+    &.white {
+      color: #606060;
+      border-left: 1px solid #bbb;
+      border-bottom: 1px solid #bbb;
+      border-radius: 0 0 5px 5px;
+      box-shadow: -1px 0 0 rgba(255, 255, 255, 0.8) inset, 0 0 5px #ccc inset, 0 0 3px rgba(0, 0, 0, 0.2);
+      background: linear-gradient(to bottom, #eee 0%, #fff 100%);
+
+      &.lit {
+        background: linear-gradient(to bottom, #eee 0%, var(--np-key-color, #68bf7e) 100%)
+      }
+
+      &.pressed, &:active {
+        border-top: 1px solid #777;
+        border-left: 1px solid #999;
+        border-bottom: 1px solid #999;
+        box-shadow: 2px 0 3px rgba(0, 0, 0, 0.1) inset, -5px 5px 20px rgba(0, 0, 0, 0.2) inset, 0 0 3px rgba(0, 0, 0, 0.2);
+        background: linear-gradient(to bottom, #fff 0%, #e9e9e9 100%);
+
+        &.lit {
+          background: linear-gradient(to bottom, #eee 0%, var(--np-key-color, #68bf7e) 100%)
+        }
+      }
+    }
+
+    &.black {
+
+      color: #757575;
+      border: 1px solid #000;
+      border-radius: 0 0 3px 3px;
+      box-shadow: -1px -1px 2px rgba(255, 255, 255, 0.2) inset, 0 -5px 2px 3px rgba(0, 0, 0, 0.6) inset, 0 2px 4px rgba(0, 0, 0, 0.5);
+      background: linear-gradient(45deg, #222 0%, #555 100%);
+
+      &.lit {
+        background: linear-gradient(to bottom, #222 0%, var(--np-key-color, #68bf7e) 100%)
+      }
+
+      &.pressed, &:active {
+        box-shadow: -1px -1px 2px rgba(255, 255, 255, 0.2) inset, 0 -2px 2px 3px rgba(0, 0, 0, 0.6) inset, 0 1px 2px rgba(0, 0, 0, 0.5);
+        background: linear-gradient(to right, #444 0%, #222 100%);
+
+        &.lit {
+          background: linear-gradient(to bottom, #222 0%, var(--np-key-color, #68bf7e) 100%)
+        }
+      }
+    }
+  }
+  .note:first-child {
+    border-radius: 5px 0 5px 5px
+  }
+
+  .note:last-child {
+    border-radius: 0 5px 5px 5px
+  }
+}
+
+@mixin key-labels() {
+  .note {
+    &.pressed, &:active {
+      .note-name {
+        bottom: 5px;
+      }
+
+      .note-finger-set {
+        bottom: 25px;
+      }
+    }
+
+    .note-name, .note-finger-set {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &.white {
+      color: #0c0c0c;
+    }
+
+    &.black {
+      color: #e0e0c1;
+    }
+
+    .note-name {
+      bottom: 7px;
+    }
+
+    .note-finger-set {
+      bottom: 27px;
+    }
+
+
+  }
+  //@media screen and (max-width: 720px) {
+  //  .note.black {
+  //    .note-name, .note-finger-set {
+  //      opacity: 0;
+  //    }
+  //  }
+  //}
+}
+
+@mixin key-styles-boxes() {
+  .note {
+    border: 1px solid #271d00;
+    box-shadow: inset 0 0 4px 1px #0a0a0a;
+
+    &.white {
+      background: #6f6444;
+
+      &.lit {
+        background: var(--np-key-color, #68bf7e);
+      }
+
+    }
+
+    &.black {
+      background: #333025;
+
+      &.lit {
+        background: var(--np-key-color, #68bf7e);
+      }
+    }
+  }
+}
+
+@mixin keyboard() {
+  @include keyboard-size();
+  @include key-sizes();
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+
+@mixin speaker() {
+  display: block;
+  width: 180px;
+  height: 200px;
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  border-radius: 0.5px;
+  background-color: #D6C6A2;
+  //noinspection CssInvalidFunction
+  background-image: linear-gradient(transparent 40%, #EFEFE7 60%),
+  linear-gradient(90deg, #BFA58D, transparent 2% 96%, #C9B59A),
+  linear-gradient(#D1BBA3 20%, transparent 65%),
+  linear-gradient(90deg, #D6C6A2, #E2D9CA),
+  linear-gradient(90deg, #D6C6A2, #E2D9CA),
+  radial-gradient(#897866 60%, transparent 61%);
+  background-size: 100% 8px,
+  100% 100%,
+  100% 8px,
+  6px 100%,
+  6px 100%,
+  190px 190px;
+  background-repeat: repeat,
+  no-repeat,
+  repeat,
+  no-repeat,
+  no-repeat,
+  no-repeat;
+  background-position: 0 0,
+  0 0,
+  0 0,
+  50px 0,
+  120px 0,
+  -7px 7px;
+}
+
+/**
+        <div class="screen-display">
+            <div class="piece output">
+                <p>wonton soup lights denim free-market BASE jump smart- bicycle Chiba semiotics realism franchise RAF. human free-market marketing towards alcohol alcohol nano- courier market cartel monofilament boy Legba construct. geodesic systemic katana advert man human chrome engine receding meta- Chiba tower construct media. towards denim drone nano- sensory gang paranoid Legba woman media corrupted film skyscraper saturation point. fluidity youtube carbon digital systema rebar ablative neon refrigerator sensory market face forwards alcohol free-market. neural sentient narrative camera crypto- singularity pre- ablative Legba Tokyo DIY RAF sensory carbon. </p>
+            </div>
+            <div class="piece scanlines"></div>
+            <div class="piece glow"></div>
+        </div>
+
+*/
+@mixin screen-display() {
+
+  $console-bg: #031e11;
+
+
+  background: #383838;
+  font-size: 24px;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+  height: 4.5rem;
+
+  // basic screen module
+
+  .piece {
+    display: block;
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  // prevent clicks
+  pointer-events: none;
+
+
+  // screen output
+  .output {
+    background-color: $console-bg;
+    position: absolute;
+    padding: .5rem;
+    pointer-events: auto;
+    text-shadow: 0 0.2rem 1rem lighten($console-bg, 20%);
+    color: #56ad60;
+    z-index: 1;
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  // chunky scanlines
+  .scanlines {
+    background: linear-gradient(
+                    to bottom,
+                    rgba(255, 255, 255, 0),
+                    rgba(255, 255, 255, 0) 50%,
+                    rgba(0, 0, 0, 0.2) 70%,
+                    rgba(0, 0, 0, 0.6)
+    );
+    background-size: 100% 0.3rem;
+    border-radius: 2rem;
+    z-index: 2;
+    position: absolute;
+  }
+
+  // screen glow
+  .glow {
+    background: radial-gradient(circle at center,
+            rgba(27, 212, 89, 1) 0%,
+            rgba(27, 212, 89, 0.88) 58%,
+            rgba(21, 235, 92, 0.57) 80%,
+            rgba(19, 94, 29, 0.27) 93%,
+            rgba(10, 23, 12, 0) 100%);
+    opacity: 0.15;
+    pointer-events: none;
+    position: absolute;
+    z-index: 3;
+  }
+}
+
+@mixin lochblech() {
+  //noinspection CssReplaceWithShorthandSafely
+  background: radial-gradient(#000 16%, transparent 17%),
+  radial-gradient(#444 16%, transparent 17%) 0 1px,
+  radial-gradient(#000 16%, transparent 17%) 8px 8px,
+  radial-gradient(#444 16%, transparent 17%) 8px 9px;
+  //noinspection CssReplaceWithShorthandSafely
+  background-color: #232323;
+  background-size: 16px 16px;
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  box-shadow: inset 0 0 5px -1px #fff,
+  inset 0 0 7px 1px #000,
+  inset 0 0 5px 0 #666,
+  inset 0 0 5px 0 #666;
+}
+

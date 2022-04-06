@@ -1,0 +1,21 @@
+@use "../../../styles/mixins/np-mixins" as mixins;
+@use "../../../styles/mixins/np-audio-mixins" as audio;
+
+:host {
+  --np-pad-width: 50px;
+  --np-pad-height: 50px;
+  //--np-pad-icon-color-rgb: 255, 200, 34;
+  display: block;
+
+  &.text-btns {
+    --np-pad-width: auto;
+    --np-pad-text-size: 14px;
+    margin-bottom: 1rem;
+  }
+
+  .np-pad-panel-inner {
+      @include audio.np-device-panel-inlay();
+      @include mixins.np-flex-row(flex-start, center, wrap);
+      padding: 5px .75rem .25rem .75rem;
+  }
+}

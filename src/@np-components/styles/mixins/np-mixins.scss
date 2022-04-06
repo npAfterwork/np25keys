@@ -1,0 +1,44 @@
+@mixin np-scroll($overflow: auto) {
+  flex: 1 1 100%;
+  overflow: $overflow;
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: var(--np-scrolbar-thumb-color);
+  }
+
+  &::-webkit-scrollbar-corner {
+    background: var(--np-scrollbar-bg-color);
+  }
+}
+
+@mixin np-clickable() {
+  cursor: pointer;
+  user-select: none;
+}
+
+@mixin np-flex($direction: row, $justify:flex-start, $align:flex-start, $wrap: nowrap, $width: null, $height: null) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+  flex-wrap: $wrap;
+  @if $width {
+    width: $width;
+  }
+  @if $height {
+    height: $height;
+  }
+}
+
+@mixin np-flex-row($justify:flex-start, $align:flex-start, $wrap: nowrap, $width: null, $height: null) {
+  @include np-flex(row, $justify, $align, $wrap, $width, $height);
+}
+@mixin np-flex-col($justify:flex-start, $align:flex-start, $wrap: nowrap, $width: null, $height: null) {
+  @include np-flex(column, $justify, $align, $wrap, $width, $height);
+}
+

@@ -1,0 +1,150 @@
+@use "../../../styles/mixins/np-mixins" as mixins;
+$shadow: 5px;
+
+:host {
+  $color-icon-rgb: var(--np-pad-icon-color-rgb, var(--np-pad-light-rgb));
+  $color-rgb: var(--np-pad-light-rgb);
+  $color: rgba($color-rgb, 1);
+  $color-40: rgba($color-rgb, .4);
+  $color-50: rgba($color-rgb, .5);
+  $color-65: rgba($color-rgb, .65);
+  $color-85: rgba($color-rgb, .85);
+
+  display: inline-block;
+  position: relative;
+  width: var(--np-pad-width, 100px);
+  height: var(--np-pad-height, 100px);
+
+  @include mixins.np-clickable();
+
+  padding: 0 3px 7px 0; // box-shadow adjusts...
+  margin: .25rem;
+
+  .np-mpc-pad-inner {
+    @include mixins.np-flex-col(center, center, null, 100%, 100%);
+
+    background: #333;
+    border: 1px solid #2f2f2f;
+    border-radius: 3px;
+    box-shadow: 1px 3px 0 1px #1e1e1e, 2px $shadow 0 1px #5d5d5d, 0 0 16px 1px rgb(0 0 0 / 50%);
+    transition: background, color .25s ease-in-out;
+
+  }
+
+  ion-icon {
+    font-size: var(--np-pad-icon-size, 25px);
+    color: rgba($color-icon-rgb, .55);
+  }
+
+
+  .np-mpc-label, .np-mpc-desc {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.76);
+    //font-weight: bold;
+    color: rgba(var(--np-pad-text-color-rgb), .65);
+    //color: rgba(var(--np-pad-light-rgb), .65);
+    padding: .5rem 1rem 0 1rem;
+
+  }
+
+  &.multiline-label {
+    .np-mpc-label {
+      white-space: normal;
+    }
+  }
+
+  .np-mpc-label {
+    text-transform: uppercase;
+    font-size: var(--np-pad-text-size, 1.7rem);
+    display: var(--np-pad-text-display, block);
+  }
+
+  .np-mpc-desc {
+    text-transform: capitalize;
+    display: var(--np-pad-desc-display, block);
+  }
+
+
+  &.lit {
+    ion-icon {
+      color: rgba($color-icon-rgb, .85);
+    }
+
+    .np-mpc-pad-inner {
+      background: radial-gradient($color-50, #333);
+      box-shadow: 1px 3px 0 1px #1e1e1e,
+      2px $shadow 0 1px $color-40,
+      0 0 16px 1px rgb(0 0 0 / 50%);
+
+      .np-mpc-label, .np-mpc-desc {
+        color: rgba(var(--np-pad-text-color-rgb), .85);
+        //color: rgba(var(--np-pad-light-rgb), .85);
+        text-shadow: 0 0 2px rgba(var(--np-pad-text-color-rgb), .85);
+      }
+    }
+  }
+
+  &:active, &.active {
+    ion-icon {
+      color: rgba($color-icon-rgb, 1);
+    }
+
+    .np-mpc-pad-inner {
+      background: radial-gradient($color-85, #333);
+      box-shadow: 1px 3px 0 1px #1e1e1e,
+      2px $shadow 0 1px $color-40,
+      0 0 16px 1px rgb(0 0 0 / 50%),
+      0 4px 7px 1px $color-65;
+
+      .np-mpc-label, .np-mpc-desc {
+        color: rgba(var(--np-pad-text-color-rgb), 1);
+        //color: rgba(var(--np-pad-light-rgb), .85);
+
+        //text-shadow: 0 0 3px rgba(var(--np-pad-text-color-rgb), 1);
+        text-shadow: 0 0 3px rgba(var(--np-pad-light-rgb), 1);
+      }
+    }
+
+  }
+
+  &.no-labels {
+    .np-mpc-label, .np-mpc-desc {
+      display: none;
+      padding: 0;
+    }
+  }
+
+  &.red {
+    --np-pad-light-rgb: 255, 0, 0;
+  }
+
+  &.green {
+    --np-pad-light-rgb: 0, 255, 35;
+  }
+
+  &.yellow {
+
+    --np-pad-light-rgb: 255, 255, 0;
+  }
+
+  &.orange {
+    --np-pad-light-rgb: 255, 165, 0;
+  }
+
+  &.blue {
+    --np-pad-light-rgb: 0, 128, 255;
+  }
+
+  &.purple {
+    --np-pad-light-rgb: 255, 0, 255;
+  }
+
+  &.teal {
+    --np-pad-light-rgb: 0, 255, 255;
+  }
+
+}

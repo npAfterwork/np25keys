@@ -1,0 +1,69 @@
+@use "../../../styles/mixins/np-audio-mixins" as audio;
+@use "../../../styles/mixins/np-mixins" as mixins;
+
+$def-line-height: 50px;
+:host {
+  flex: 1 1 100%;
+  position: relative;
+  overflow: hidden;
+  @include audio.np-device-panel-inlay();
+  border-radius: 0;
+  padding:0;
+  background: rgba(56, 62, 37, 1);
+  box-shadow: inset 1px 1px 7px 0 #050505,  0 0 2px 2px #000,  0 0 4px 2px #777;
+  &.scanlines {
+    @include audio.np-scanlines();
+  }
+
+  &.backlight {
+    @include audio.np-backlight();
+  }
+
+
+  @include mixins.np-flex-col();
+  .inner-display {
+    flex:1 1 100%;
+    width: 100%;
+    //background: green;
+
+    .inner-lines {
+      @include mixins.np-flex-row();
+      // no max height and min lines on max lines makes it dynamically adjust
+      line-height: var(--np-key-line-height, $def-line-height);
+      max-height: calc(var(--np-key-line-count, 1) * var(--np-key-line-height, $def-line-height));
+      font-size: 16pt;
+      color: #aecca6b3;
+      text-shadow: 3px 2px 0 rgba(0, 0, 0, .2);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &.multi-line {
+    .inner-display {
+      .inner-lines {
+        //white-space: pre; // keeps lines with br
+        //white-space: pre-line; // keeps lines with br but wraps single lines
+        white-space: normal; // keeps lines with br but wraps single lines
+      }
+    }
+  }
+
+  &.small {
+    height: 25px;
+
+    .inner-display {
+      .inner-lines {
+        display: block;
+        font-size: 12pt;
+        line-height: 25px;
+        padding: 0 .5rem;
+      }
+    }
+  }
+
+
+}
+
+

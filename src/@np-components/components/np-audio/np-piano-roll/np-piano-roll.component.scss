@@ -1,0 +1,23 @@
+@use "../../../styles/mixins/np-audio-mixins" as mixins;
+
+:host-context(.connected) {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  //padding-top: 0;
+  .note:first-child {
+    border-radius: 0 0 5px 5px
+  }
+
+  .note:last-child {
+    border-radius: 0 0 5px 5px
+  }
+}
+
+:host {
+  @include mixins.keyboard();
+  @include mixins.key-styles-piano();
+  @include mixins.key-labels();
+  //margin: 1rem;
+  //width: calc(100% - 2rem);
+  width: 100%;
+}
