@@ -1,0 +1,49 @@
+@use "~src/@np-components/styles/mixins/np-audio-mixins" as audio;
+@use "~src/@np-components/styles/mixins/np-mixins" as mixins;
+@use "../../../theme/breakpoints.mixins" as breaks;
+
+:host {
+  app-toolbar {
+    margin-bottom: 1rem;
+  }
+
+  .inner-frame {
+    --np-pad-width: 30vmin;
+    --np-pad-height: 30vmin;
+    --np-pad-icon-size: 60px;
+    --np-pad-icon-color-rgb: 255, 200, 34;
+    --np-pad-text-color-rgb: 255, 200, 34;
+    //--np-pad-text-color-rgb: var(--np-pad-light-rgb);
+    @include audio.np-device-panel-inlay();
+    @include mixins.np-flex-row(center, center, wrap);
+    margin: 0; // should always be margin 0 and padding from parent... TODO:css layouting
+    padding: .5rem;
+    flex: 1;
+  }
+}
+
+:host{
+  @include breaks.inside-mobile {
+    np-mpc-pad {
+      --np-pad-desc-display: none;
+      --np-pad-text-size: 1.2rem;
+    }
+  }
+  @include breaks.inside-mobile-sm {
+    np-mpc-pad {
+      --np-pad-text-display: none;
+    }
+  }
+  @include breaks.inside-height-medium {
+    np-mpc-pad {
+      --np-pad-desc-display: none;
+      --np-pad-text-size: 1.2rem;
+    }
+  }
+
+  @include breaks.inside-height-small {
+    np-mpc-pad {
+      --np-pad-text-display: none;
+    }
+  }
+}

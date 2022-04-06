@@ -1,0 +1,40 @@
+@use "../../../@np-components/styles/mixins/np-audio-mixins" as audio;
+
+:host {
+  --ion-background-color: transparent;
+
+  ion-content {
+    @include audio.np-device-panel();
+    border-radius: 10px;
+  }
+
+  .np-menu-rack {
+    --np-device-container-min-width: 1px;
+    --np-device-container-margin: 0;
+
+    .np-brand {
+      pointer-events: none;
+      background: linear-gradient(-135deg, transparent 25%, rgb(78 61 39) 44%, transparent);
+      flex: 0 0 78px;
+      position: relative;
+      margin-bottom: .5rem;
+      .close-btn {
+        position: absolute;
+        right: 0;
+        top: -.5rem;
+      }
+      .np-brand-sub {
+        letter-spacing: -.5px;
+        font-size: 14px;
+        text-shadow: none;
+        color: #895515;
+      }
+    }
+  }
+
+  ion-menu[menuId="options"] {
+    --max-width: 800px;
+    --min-width: 340px;
+    --width: 100%;
+  }
+}

@@ -1,0 +1,40 @@
+<np-panel-rack>
+    <app-toolbar np-toolbar currentPage="Home" [open]="false"
+                 [headline]="CTEXTS.PAGES.home | translate"
+                 [subline]="CTEXTS.PAGES.home_sub"
+    ></app-toolbar>
+    <div class="inner-frame">
+        <np-mpc-pad class="green lit active" icon="menu-sharp"
+                    [label]="CTEXTS.PADS.menu"
+                    [subtext]="CTEXTS.PADS.menu_sub"
+                    (click)="navService.openMenu($event)"
+        ></np-mpc-pad>
+        <np-mpc-pad class="red lit active" icon="musical-note-sharp"
+                    [label]="CTEXTS.PADS.practice"
+                    [subtext]="CTEXTS.PADS.practice_sub"
+                    (click)="navService.goToPractice($event, null)"
+        ></np-mpc-pad>
+        <np-mpc-pad class="orange lit active" icon="play-sharp"
+                    [label]="CTEXTS.PADS.freeplay"
+                    [subtext]="CTEXTS.PADS.freeplay_sub"
+                    (click)="navService.goToFreeplay($event)"
+        ></np-mpc-pad>
+
+        <np-mpc-pad class="teal lit active" icon="newspaper-sharp"
+                    [label]="CTEXTS.PADS.theory"
+                    [subtext]="CTEXTS.PADS.theory_sub"
+                    (click)="navService.goToTheory($event)"
+        ></np-mpc-pad>
+        <np-mpc-pad class="blue lit active" icon="ribbon-sharp"
+                    [label]="CTEXTS.PADS.lessons"
+                    [subtext]="CTEXTS.PADS.lessons_sub"
+                    (click)="navService.goToLessons($event)"
+        ></np-mpc-pad>
+        <np-mpc-pad class="purple lit active" icon="options-sharp"
+                    [label]="CTEXTS.PADS.options"
+                    [subtext]="CTEXTS.PADS.options_sub"
+                    (click)="navService.goToSettings('roll', $event)"
+        ></np-mpc-pad>
+    </div>
+
+</np-panel-rack>

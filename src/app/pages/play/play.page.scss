@@ -1,0 +1,30 @@
+@use "~src/@np-components/styles/np-variables" as var;
+:host {
+// TODO: css layouting
+  app-display-panel {
+    flex: 1 1 var.$np-gc-large;
+    max-height: 295px;
+  }
+
+  app-piano-roll-cover-panel {
+    z-index: 99;
+    padding-top: 2rem;
+  }
+
+  np-piano-roll-display{
+    min-height: 60px;
+    max-height: 80px;
+  }
+
+  np-piano-roll {
+    flex: 1 1 var.$np-gc-small;
+    max-height: 320px;
+    min-height: 200px;
+  }
+
+  app-practice-panel {
+    margin: .5rem 0;
+  }
+}
+
+

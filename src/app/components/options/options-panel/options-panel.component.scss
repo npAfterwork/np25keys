@@ -1,0 +1,10 @@
+@use "~src/@np-components/styles/mixins/np-audio-mixins" as audio;
+:host {
+  div.scroll {
+    max-height: calc(100% - 48px);
+    box-shadow: none;
+    border: none;
+    padding: 7px 0;
+    margin: 0;
+  }
+}

@@ -1,0 +1,21 @@
+<ion-list class="np-audio-device-panel-inlay">
+    <np-options-toggle [label]="CTEXTS.OPTIONS.PIANOROLL.notes" [desc]="CTEXTS.OPTIONS.PIANOROLL.notes_sub"
+                       [ngModel]="npPianoRollService.pianoroll$.notes | async" (ngModelChange)="npPianoRollService.pianoroll.notes($event)"
+    ></np-options-toggle>
+    <np-options-toggle [disabled]="!(npPianoRollService.pianoroll$.notes | async)"
+                       [label]="CTEXTS.OPTIONS.PIANOROLL.octave" [desc]="CTEXTS.OPTIONS.PIANOROLL.octave_sub"
+                       [ngModel]="npPianoRollService.pianoroll$.octave | async" (ngModelChange)="npPianoRollService.pianoroll.octave($event)"
+    ></np-options-toggle>
+    <np-options-toggle [label]="CTEXTS.OPTIONS.PIANOROLL.lesson" [desc]="CTEXTS.OPTIONS.PIANOROLL.lesson_sub"
+                       [ngModel]="npPianoRollService.pianoroll$.lightup | async" (ngModelChange)="npPianoRollService.pianoroll.lightup($event)"
+    ></np-options-toggle>
+    <np-options-toggle [label]="CTEXTS.OPTIONS.PIANOROLL.fingerset" [desc]="CTEXTS.OPTIONS.PIANOROLL.fingerset_sub"
+                       [ngModel]="npPianoRollService.pianoroll$.fingerset | async" (ngModelChange)="npPianoRollService.pianoroll.fingerset($event)"
+    ></np-options-toggle>
+    <!--        <np-options-toggle [label]="CTEXTS.OPTIONS.PIANOROLL.velocity" [desc]="CTEXTS.OPTIONS.PIANOROLL.velocity_sub"-->
+    <!--                           [ngModel]="piano.pianoroll$.velocity | async" (ngModelChange)="piano.pianoroll.velocity($event)"-->
+    <!--        ></np-options-toggle>-->
+    <!--        <np-options-toggle [label]="CTEXTS.OPTIONS.PIANOROLL.validation" [desc]="CTEXTS.OPTIONS.PIANOROLL.validation_sub"-->
+    <!--                           [ngModel]="npPianoRollService.pianoroll$.validation | async" (ngModelChange)="npPianoRollService.pianoroll.validation($event)"-->
+    <!--        ></np-options-toggle>-->
+</ion-list>

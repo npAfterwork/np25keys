@@ -1,0 +1,35 @@
+<np-toggle-panel [headline]="headline" [subline]="subline" compact="true" [open]="open">
+    <np-mpc-pad class="green no-labels lit" icon="menu-sharp"
+                [label]="CTEXTS.PADS.menu"
+                (click)="navService.openMenu($event)"
+    ></np-mpc-pad>
+    <np-mpc-pad [active]="currentPage === 'Home'"
+                class="yellow no-labels lit" icon="home-sharp"
+                [label]="CTEXTS.PADS.home"
+                (click)="navService.goToHome($event)"
+    ></np-mpc-pad>
+    <np-mpc-pad [active]="currentPage === 'Practice'"
+                class="red no-labels lit" icon="musical-note-sharp"
+                [label]="CTEXTS.PADS.practice"
+                (click)="navService.goToPractice($event, null)"
+    ></np-mpc-pad>
+    <np-mpc-pad [active]="currentPage === 'Freeplay'"
+                class="orange no-labels lit" icon="play-sharp"
+                [label]="CTEXTS.PADS.freeplay"
+                (click)="navService.goToFreeplay($event)"
+    ></np-mpc-pad>
+    <np-mpc-pad [active]="currentPage === 'Theory'"
+                class="teal no-labels lit" icon="newspaper-sharp"
+                [label]="CTEXTS.PADS.theory"
+                (click)="navService.goToTheory($event)"
+    ></np-mpc-pad>
+    <np-mpc-pad [active]="currentPage === 'Lessons'"
+                class="blue no-labels lit" icon="ribbon-sharp"
+                [label]="CTEXTS.PADS.lessons"
+                (click)="navService.goToLessons($event)"
+    ></np-mpc-pad>
+    <np-mpc-pad class="purple no-labels lit" icon="options-sharp"
+                [label]="CTEXTS.PADS.options"
+                (click)="navService.goToSettings('roll', $event)"
+    ></np-mpc-pad>
+</np-toggle-panel>

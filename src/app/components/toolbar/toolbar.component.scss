@@ -1,0 +1,9 @@
+@use "../../../@np-components/styles/mixins/np-mixins" as mixins;
+:host {
+  @include mixins.np-flex-row(flex-start, center, wrap);
+
+  --np-pad-width: 50px;
+  --np-pad-height: 50px;
+  --np-pad-icon-color-rgb: 255, 200, 34;
+}
+

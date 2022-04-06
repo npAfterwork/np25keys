@@ -1,0 +1,82 @@
+@use "../../../@np-components/styles/mixins/np-audio-mixins" as audio;
+
+$def-line-height: 25px;
+$playing-width: 56px;
+:host {
+  @include audio.np-device-panel();
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  margin: .5rem 0 0 0;
+  //height: 100%;
+
+  np-retro-display {
+    cursor: pointer;
+
+    .info-lines {
+      height: 100%;
+      width: 100%;
+      padding: 0 1rem;
+
+      div {
+        &.one-line-max {
+          max-height: var(--np-key-line-height, $def-line-height);
+          white-space: nowrap;
+        }
+        &.two-lines-max {
+          max-height: calc(2 * var(--np-key-line-height, $def-line-height));
+          overflow-y: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+
+  .main-display {
+    margin-top: 1rem;
+    flex: 1;
+    font-family: monospace;
+
+    &.standalone {
+      margin-top: 0;
+    }
+
+    .display-frame {
+      display: flex;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+
+      .played-notes, .info-lines {
+        box-shadow: inset 0 0 0 3px rgba(174, 204, 166, 0.18);
+
+        span {
+          transform: rotateZ(-90deg);
+          position: absolute;
+          bottom: 22px;
+          opacity: calc(var(--np-key-line-count) - 2); // show on 3+ lines
+          $font-size: 12px;
+          right: #{$font-size * -1};
+          font-size: #{$font-size};
+          line-height: #{$font-size};
+          color: #aecca6f5;
+        }
+      }
+    }
+
+    .played-notes {
+      height: 100%;
+      padding: 0 1rem;
+      width: $playing-width;
+      flex: 0 0 $playing-width;
+      margin: 0 .5rem 0 0;
+      position: relative;
+
+    }
+
+    .info-lines {
+      width: calc(100% - #{$playing-width} - .5rem);
+    }
+  }
+
+}

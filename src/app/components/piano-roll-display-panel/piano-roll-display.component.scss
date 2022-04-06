@@ -1,0 +1,25 @@
+@use "../../../@np-components/styles/mixins/np-audio-mixins" as audio;
+
+:host-context(.connected) {
+  .keyboard {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+:host {
+  @include audio.keyboard-size();
+  @include audio.np-device-panel-inlay();
+  //margin: 0 auto;
+  padding: 0;
+  //height: #{variables.$note-display-height};
+  display: flex;
+  flex-direction: column;
+
+  .keyboard {
+    @include audio.keyboard();
+    @include audio.key-styles-boxes();
+    //@include audio.np-scanlines();
+    border-radius: 0
+  }
+}

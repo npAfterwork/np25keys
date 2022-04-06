@@ -1,0 +1,19 @@
+<ion-list class="np-audio-device-panel-inlay">
+    <np-options-toggle [label]="CTEXTS.OPTIONS.UI.toolbar" [desc]="CTEXTS.OPTIONS.UI.toolbar_sub"
+                       [ngModel]="options.get$.toolbar | async" (ngModelChange)="changeToolbar($event)"
+    ></np-options-toggle>
+    <np-options-toggle [label]="CTEXTS.OPTIONS.UI.infodisplays" [desc]="CTEXTS.OPTIONS.UI.infodisplays_sub"
+                       [ngModel]="options.get$.infodisplays | async" (ngModelChange)="options.save.infodisplays($event)"
+    ></np-options-toggle>
+    <np-options-toggle [label]="CTEXTS.OPTIONS.UI.mpcpads" [desc]="CTEXTS.OPTIONS.UI.mpcpads_sub"
+                       [ngModel]="options.get$.mpcpads | async" (ngModelChange)="options.save.mpcpads($event)"
+    ></np-options-toggle>
+    <np-options-toggle [label]="CTEXTS.OPTIONS.UI.cover" [desc]="CTEXTS.OPTIONS.UI.cover_sub"
+                       [ngModel]="npPianoRoll.cover$.visible | async"
+                       (ngModelChange)="npPianoRoll.cover.visible($event)"
+    ></np-options-toggle>
+    <np-options-toggle [label]="CTEXTS.OPTIONS.UI.notedisplay" [desc]="CTEXTS.OPTIONS.UI.notedisplay_sub"
+                       [ngModel]="npPianoRoll.display$.visible | async"
+                       (ngModelChange)="npPianoRoll.display.visible($event)"
+    ></np-options-toggle>
+</ion-list>

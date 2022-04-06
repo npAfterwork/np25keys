@@ -1,0 +1,56 @@
+@use "breakpoints.mixins" as breaks;
+// TODO: @debug only
+// @Beware: using inside breaks from 0 to break-point makes the order counts (latest rule wins)
+@include breaks.inside-retina {
+  app-toolbar {
+    background: linear-gradient(45deg, #181816 70%, transparent) purple !important;
+  }
+}
+
+@include breaks.inside-desktop {
+  app-toolbar {
+    background: linear-gradient(45deg, #181816 70%, transparent) blue !important;
+  }
+}
+
+@include breaks.inside-desktop-sm {
+  app-toolbar {
+    background: linear-gradient(45deg, #181816 70%, transparent) #4848d5 !important;
+  }
+}
+
+@include breaks.inside-tablet {
+  app-toolbar {
+    background: linear-gradient(45deg, #181816 70%, transparent) teal !important;
+  }
+}
+
+@include breaks.inside-tablet-sm {
+  app-toolbar {
+    background: linear-gradient(45deg, #181816 70%, transparent) #68e8e8 !important;
+  }
+}
+
+@include breaks.inside-mobile {
+  app-toolbar {
+    background: linear-gradient(45deg, #181816 70%, transparent) green !important;
+  }
+}
+
+@include breaks.inside-mobile-md {
+  app-toolbar {
+    background: linear-gradient(45deg, #181816 70%, transparent) #61a52b !important;
+  }
+}
+
+@include breaks.inside-mobile-sm {
+  app-toolbar {
+    background: linear-gradient(45deg, #181816 70%, transparent) #54d254 !important;
+  }
+}
+
+@include breaks.inside-watch {
+  app-toolbar {
+    background: linear-gradient(45deg, #181816 70%, transparent) red !important;
+  }
+}

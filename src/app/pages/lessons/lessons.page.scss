@@ -1,0 +1,18 @@
+$lessons-pad-size: 50px;
+$lessons-font-size: 14px;
+
+:host {
+  np-pad-panel {
+    --np-pad-icon-color-rgb: 255, 200, 34;
+    &.lessons {
+      --np-pad-text-size: #{$lessons-font-size};
+      margin-top: 1rem;
+      np-mpc-pad {
+        --np-pad-width: auto;
+        --np-pad-height: auto;
+        max-width: 168px;
+      }
+    }
+  }
+
+}

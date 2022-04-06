@@ -1,0 +1,37 @@
+<np-pad-panel>
+  <np-mpc-pad class="green no-labels" icon="play-skip-back-sharp"
+              [label]="CTEXTS.PADS.prev" [lightup]="lessonService.hasPrevLessons || lessonService.hasPrevLessonParts"
+              (click)="lessonService.previousLesson()"
+  ></np-mpc-pad>
+
+  <np-mpc-pad class="green no-labels" icon="play-back-sharp"
+              [label]="CTEXTS.PADS.prev" [lightup]="lessonService.hasPrevLessons || lessonService.hasPrevLessonParts"
+              (click)="lessonService.previousLessonPart()"
+  ></np-mpc-pad>
+  <np-mpc-pad class="orange no-labels" [icon]="!!lessonService.playedNotes.length ? 'refresh-sharp' : 'play-sharp'"
+              [label]="CTEXTS.PADS.restart" [lightup]="!!lessonService.playedNotes.length"
+              (click)="lessonService.restartLessonPart()"
+  ></np-mpc-pad>
+  <np-mpc-pad class="green no-labels" icon="play-forward-sharp"
+              [label]="CTEXTS.PADS.next" [lightup]="lessonService.hasMoreLessonParts || lessonService.hasMoreLessons"
+              (click)="lessonService.advanceLessonPart()"
+  ></np-mpc-pad>
+  <np-mpc-pad class="green no-labels" icon="play-skip-forward-sharp"
+              [label]="CTEXTS.PADS.prev" [lightup]="lessonService.hasMoreLessonParts || lessonService.hasMoreLessons"
+              (click)="lessonService.advanceLesson()"
+  ></np-mpc-pad>
+
+  <np-mpc-pad class="green no-labels" icon="infinite-sharp"
+              [class.orange]="(lessonService.options$.loop | async) === 'section'"
+              [label]="CTEXTS.PADS.loop" [lightup]="(lessonService.options$.loop | async) !== 'none'"
+              (click)="lessonService.toggleLoop()"
+  ></np-mpc-pad>
+  <np-mpc-pad class="teal no-labels" icon="pulse-sharp"
+              [label]="CTEXTS.PADS.metronome" [lightup]="lessonService.metronome$ | async"
+              (click)="lessonService.toggleMetronome()"
+  ></np-mpc-pad>
+  <np-mpc-pad class="blue no-labels lit" icon="ribbon-sharp"
+              [label]="CTEXTS.PADS.lessons"
+              (click)="navService.goToLessons($event)"
+  ></np-mpc-pad>
+</np-pad-panel>

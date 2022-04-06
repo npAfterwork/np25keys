@@ -1,0 +1,10 @@
+$np-break-watch: 360px; // end watch -> start mobile
+$np-break-mobile-sm: 492px; // end mobile-sm
+$np-break-mobile-md: 640px !default; // end mobile-md -> start tablet
+$np-break-mobile: 768px !default; // end mobile-md -> start tablet
+$np-break-tablet-sm: 1024px !default; // end tablet-sm
+$np-break-tablet: 1280px !default; // end tablet -> start desktop
+$np-break-desktop-sm: 1600px !default; // end desktop-sm
+$np-break-desktop: 1920px !default; // end desktop -> start retina
+@import "~src/@np-components/styles/mixins/np-breaks";
+

@@ -1,0 +1,34 @@
+<div flex-row flex-between-center *ngIf="optionsService.get$.infodisplays | async">
+    <np-retro-display flex-item class="small" [scanlines]="optionsService.get$.scanlines | async" (click)="lessonsService.toggleLeftDisplayMode()">
+        {{lessonsService.texts$.leftInfo | async}}
+    </np-retro-display>
+    <np-retro-display flex-item class="small" [scanlines]="optionsService.get$.scanlines | async" (click)="lessonsService.toggleRightDisplayMode()">
+        {{lessonsService.texts$.rightInfo | async}}
+    </np-retro-display>
+</div>
+<np-retro-display *ngIf="optionsService.get$.maindisplay | async"
+                  class="main-display multi-line"
+                  [multiline]="true"
+                  [minLines]="2"
+                  (click)="lessonsService.toggleMainDisplayMode()"
+                  [scanlines]="optionsService.get$.scanlines | async"
+                  [class.standalone]="!(optionsService.get$.infodisplays | async)"
+>
+    <div class="played-notes" >
+        <div *ngFor="let pressed of (lessonsService.pressed$ | async)">{{pressed.noteName}}</div>
+    </div>
+    <div class="info-lines">
+        <div *ngFor="let line of (lessonsService.texts$.mainInfo | async); let idx=index" [innerHTML]="line"
+             [class.one-line-max]="idx >= 2"
+             [class.two-lines-max]="(idx == 1)"
+        ></div>
+    </div>
+    <div class="display-frame">
+        <div class="played-notes">
+            <span>{{CTEXTS.DISPLAY.playing | translate}}</span>
+        </div>
+        <div class="info-lines">
+            <span>{{lessonsService.texts$.mainMode | async}}</span>
+        </div>
+    </div>
+</np-retro-display>
