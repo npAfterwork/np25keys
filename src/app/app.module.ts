@@ -21,38 +21,37 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 @NgModule({
-            declarations:    [AppComponent],
-            entryComponents: [],
-            imports:         [
-              BrowserModule,
-              BrowserAnimationsModule,
-              HttpClientModule,
-              IonicModule.forRoot({
-                                    navAnimation: fancyAnimation
-                                  }),
-              TranslateModule.forRoot({
-                                        defaultLanguage: 'en',
-                                        loader:          {
-                                          provide:    TranslateLoader,
-                                          useFactory: HttpLoaderFactory,
-                                          deps:       [HttpClient]
-                                        }
-                                      }),
-              ComponentsModule,
-              AppRoutingModule,
-              // Not yet // TODO: PWA
-              // ServiceWorkerModule.register('ngsw-worker.js', {
-              //   enabled: environment.production,
-              //   // Register the ServiceWorker as soon as the app is stable
-              //   // or after 30 seconds (whichever comes first).
-              //   registrationStrategy: 'registerWhenStable:30000'
-              // }),
-            ],
-            providers:       [
-              StatusBar,
-              SplashScreen,
-              {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
-            ],
-            bootstrap:       [AppComponent]
-          })
+    declarations: [AppComponent],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        IonicModule.forRoot({
+            navAnimation: fancyAnimation
+        }),
+        TranslateModule.forRoot({
+            defaultLanguage: 'en',
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        }),
+        ComponentsModule,
+        AppRoutingModule,
+        // Not yet // TODO: PWA
+        // ServiceWorkerModule.register('ngsw-worker.js', {
+        //   enabled: environment.production,
+        //   // Register the ServiceWorker as soon as the app is stable
+        //   // or after 30 seconds (whichever comes first).
+        //   registrationStrategy: 'registerWhenStable:30000'
+        // }),
+    ],
+    providers: [
+        StatusBar,
+        SplashScreen,
+        { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    ],
+    bootstrap: [AppComponent]
+})
 export class AppModule {}

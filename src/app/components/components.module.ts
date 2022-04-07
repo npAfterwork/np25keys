@@ -40,20 +40,18 @@ const components = [
 ];
 
 @NgModule({
-            imports: [
-              CommonModule,
-              FormsModule,
-              IonicModule,
-              TranslateModule,
-              NPComponentsModule,
-            ],
-            declarations: [
-              components,
-
-            ],
-            exports: [
-              components,
-            ],
-            entryComponents: []
-          })
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        TranslateModule,
+        NPComponentsModule,
+    ],
+    declarations: [
+        components,
+    ],
+    exports: [
+        components,
+    ]
+})
 export class ComponentsModule {}
