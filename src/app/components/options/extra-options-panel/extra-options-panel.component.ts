@@ -3,10 +3,11 @@ import {NPPianoRollService} from '../../../../@np-components/services/np-audio/n
 import {CTEXTS} from '../../../@consts/texts.consts';
 import {OptionsService} from '../../../services/options.service';
 @Component({
-             selector:    'app-options-extra-panel',
-             templateUrl: './extra-options-panel.component.html',
-             styleUrls:   ['./extra-options-panel.component.scss'],
-           })
+    selector: 'app-options-extra-panel',
+    templateUrl: './extra-options-panel.component.html',
+    styleUrls: ['./extra-options-panel.component.scss'],
+    standalone: false
+})
 export class ExtraOptionsPanelComponent implements OnInit {
   CTEXTS = CTEXTS;
 

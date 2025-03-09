@@ -1,15 +1,15 @@
-import {Component, HostBinding, HostListener, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {TTextID} from '../../../@types/np.types';
-import {CAnimations} from '../../../utils/np-animations';
-import {preventEvent} from '../../../utils/np-utils';
+import { Component, HostBinding, HostListener, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { TTextID } from '../../../@types/np.types';
+import { CAnimations } from '../../../utils/np-animations';
+import { preventEvent } from '../../../utils/np-utils';
 
 @Component({
-             selector:      'np-toggle-panel',
-             templateUrl:   './np-toggle-panel.component.html',
-             styleUrls:     ['./np-toggle-panel.component.scss'],
-             animations:    [CAnimations.collapse.meta],
-             // encapsulation: ViewEncapsulation.None
-           })
+    selector: 'np-toggle-panel',
+    templateUrl: './np-toggle-panel.component.html',
+    styleUrls: ['./np-toggle-panel.component.scss'],
+    animations: [CAnimations.collapse.meta],
+    standalone: false
+})
 export class NPTogglePanelComponent implements OnInit, OnChanges {
 
   @Input() headline: TTextID;
@@ -33,7 +33,7 @@ export class NPTogglePanelComponent implements OnInit, OnChanges {
   ngOnInit() {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.headerClickOnly && this.headerClickOnly) {
+    if (changes['headerClickOnly'] && this.headerClickOnly) {
       this.clickable = false;
     }
   }

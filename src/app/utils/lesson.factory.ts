@@ -1,8 +1,8 @@
-import {CMAJORSCALES, EMAJORSCALES, ENOTES} from '../../@np-components/@consts/np-note.consts';
-import {noteIdxIsSharp, randomNote} from '../../@np-components/utils/np-audio-utils';
-import {environment} from '../../environments/environment';
-import {CTEXTS} from '../@consts/texts.consts';
-import {ILessonPart, TLessonIndex} from '../@types/app.types';
+import { CMAJORSCALES, EMAJORSCALES, ENOTES } from '../../@np-components/@consts/np-note.consts';
+import { noteIdxIsSharp, randomNote } from '../../@np-components/utils/np-audio-utils';
+import { environment } from '../../environments/environment';
+import { CTEXTS } from '../@consts/texts.consts';
+import { ILessonPart, TLessonIndex } from '../@types/app.types';
 
 function getMajorScaleParts(scaleKey: EMAJORSCALES): ILessonPart[] {
 
@@ -29,8 +29,8 @@ function getMajorScaleParts(scaleKey: EMAJORSCALES): ILessonPart[] {
     },
     {
       playStyle:  'legato', direction: 'descending', hand: 'right', size: 'once', type: 'scales',
-      notes:      [].concat(notes_once).reverse(),
-      fingersets: [].concat(fingerset_once).reverse(), // hmm i think i need a descending fingerset
+      notes:      [...notes_once].reverse(),
+      fingersets: [...fingerset_once].reverse(), // hmm i think i need a descending fingerset
     },
     {
       playStyle:  'legato', direction: 'ascending', hand: 'right', size: 'full', type: 'scales',
@@ -39,8 +39,8 @@ function getMajorScaleParts(scaleKey: EMAJORSCALES): ILessonPart[] {
     },
     {
       playStyle:  'legato', direction: 'descending', hand: 'right', size: 'full', type: 'scales',
-      notes:      [].concat(notes_full).reverse(),
-      fingersets: [].concat(fingerset_full).reverse(), // hmm i think i need a descending fingerset
+      notes:      [...notes_full].reverse(),
+      fingersets: [...fingerset_full].reverse(), // hmm i think i need a descending fingerset
     },
   ];
 }
@@ -63,9 +63,9 @@ function getMajorChordParts(scaleKey: EMAJORSCALES): ILessonPart[] {
   }
   return [
     {playStyle: 'staccato', direction: 'ascending', hand: 'right', size: 'once', type: 'chords', notes: once, fingersets: fs_once},
-    {playStyle: 'staccato', direction: 'descending', hand: 'right', size: 'once', type: 'chords', notes: [].concat(once).reverse(), fingersets: [].concat(fs_once).reverse()},
+    {playStyle: 'staccato', direction: 'descending', hand: 'right', size: 'once', type: 'chords', notes: [...once].reverse(), fingersets: [...fs_once].reverse()},
     {playStyle: 'staccato', direction: 'ascending', hand: 'right', size: 'full', type: 'chords', notes: chords, fingersets: fs},
-    {playStyle: 'staccato', direction: 'descending', hand: 'right', size: 'full', type: 'chords', notes: [].concat(chords).reverse(), fingersets: [].concat(fs).reverse()},
+    {playStyle: 'staccato', direction: 'descending', hand: 'right', size: 'full', type: 'chords', notes: [...chords].reverse(), fingersets: [...fs].reverse()},
   ];
 }
 

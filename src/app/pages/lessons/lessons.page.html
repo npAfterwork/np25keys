@@ -8,7 +8,7 @@
                      headline="{{pack.name}}"
                      subline="{{pack.sub}}"
                      [open]="(tab === pack.pack)"
-                     headerClickOnly="true">
+                     [headerClickOnly]="true">
         <np-pad-panel np-fixed label="...click to toggle">
             <np-mpc-pad class="no-labels teal lit" icon="newspaper-sharp" (click)="navService.goToTheory($event,pack.pack)"></np-mpc-pad>
             <np-mpc-pad class="no-labels red lit" icon="musical-note-sharp" (click)="navService.goToPractice($event, pack)"></np-mpc-pad>

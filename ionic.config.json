@@ -1,7 +1,7 @@
 {
-  "name": "np-Spielzettel",
+  "name": "np-time-tracker",
   "integrations": {
-    "cordova": {}
+    "capacitor": {}
   },
-  "type": "angular"
+  "type": "angular-standalone"
 }

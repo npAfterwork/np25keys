@@ -1,16 +1,17 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {Subscription} from 'rxjs';
-import {CTEXTS} from '../../@consts/texts.consts';
-import {ILessonPack, TLessonPack} from '../../@types/app.types';
-import {NavigateService} from '../../services/navigate.service';
-import {OptionsService} from '../../services/options.service';
-import {CLessonBundleIndex} from '../../utils/lesson.factory';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { CTEXTS } from '../../@consts/texts.consts';
+import { ILessonPack, TLessonPack } from '../../@types/app.types';
+import { NavigateService } from '../../services/navigate.service';
+import { OptionsService } from '../../services/options.service';
+import { CLessonBundleIndex } from '../../utils/lesson.factory';
 
 @Component({
-  selector: 'app-lessons-page',
-  templateUrl: './lessons.page.html',
-  styleUrls: ['./lessons.page.scss'],
+    selector: 'app-lessons-page',
+    templateUrl: './lessons.page.html',
+    styleUrls: ['./lessons.page.scss'],
+    standalone: false
 })
 export class LessonsPage implements OnInit {
   CTEXTS = CTEXTS;
@@ -28,7 +29,7 @@ export class LessonsPage implements OnInit {
   ngOnInit() {
     this.lessonPacks = Object.values(CLessonBundleIndex).filter(bundle => bundle.type !== 'freeplay');
     this.routeSub = this.route.params.subscribe(params => {
-      this.tab = params.topic;
+      this.tab = params['topic'];
     });
   }
 

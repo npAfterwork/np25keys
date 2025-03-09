@@ -1,4 +1,4 @@
-@use "~src/@np-components/styles/mixins/np-audio-mixins" as audio;
+@use "../../../../@np-components/styles/mixins/np-audio-mixins" as audio;
 :host {
   div.scroll {
     max-height: calc(100% - 48px);

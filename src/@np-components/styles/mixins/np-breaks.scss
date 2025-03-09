@@ -1,14 +1,14 @@
 // epsilon for areas
 $np-break-epsilon: .02 !default;
 
-$np-break-watch: 340px !global !default; // end watch -> start mobile
-$np-break-mobile-sm: 425px !global !default; // end mobile-sm
-$np-break-mobile-md: 640px !global !default; // end mobile-md -> start tablet
-$np-break-mobile: 768px !global !default; // end mobile-md -> start tablet
-$np-break-tablet-sm: 1024px !global !default; // end tablet-sm
-$np-break-tablet: 1280px !global !default; // end tablet -> start desktop
-$np-break-desktop-sm: 1600px !global !default; // end desktop-sm
-$np-break-desktop: 1920px !global !default; // end desktop -> start retina
+$np-break-watch: 340px !default; // end watch -> start mobile
+$np-break-mobile-sm: 425px !default; // end mobile-sm
+$np-break-mobile-md: 640px !default; // end mobile-md -> start tablet
+$np-break-mobile: 768px !default; // end mobile-md -> start tablet
+$np-break-tablet-sm: 1024px !default; // end tablet-sm
+$np-break-tablet: 1280px !default; // end tablet -> start desktop
+$np-break-desktop-sm: 1600px !default; // end desktop-sm
+$np-break-desktop: 1920px !default; // end desktop -> start retina
 
 
 $np-break-height-sm: 480px;

@@ -5,7 +5,7 @@
     ></app-toolbar>
 
     <np-toggle-panel *ngFor="let bundle of lessonBundles"
-                     [open]="tab === bundle.pack" slow="true"
+                     [open]="tab === bundle.pack" [slow]="true"
                      [headline]="bundle.name" [subline]="bundle.sub">
         <np-pad-panel np-fixed label="...click to toggle">
                 <np-mpc-pad class="no-labels blue lit" icon="ribbon-sharp" (click)="navService.goToLessons($event, bundle.pack)"></np-mpc-pad>

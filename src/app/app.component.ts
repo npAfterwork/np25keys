@@ -1,24 +1,24 @@
-import {Component} from '@angular/core';
-import {SplashScreen} from '@ionic-native/splash-screen/ngx';
-import {StatusBar} from '@ionic-native/status-bar/ngx';
+import { Component } from '@angular/core';
 
-import {Platform} from '@ionic/angular';
-import {TranslateService} from '@ngx-translate/core';
-import {OptionsService} from './services/options.service';
+import { Platform } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
+import { OptionsService } from './services/options.service';
+import { addIcons } from 'ionicons';
+import { APP_ICONS } from './@consts/app.icons';
 
 @Component({
-             selector:    'app-root',
-             templateUrl: 'app.component.html',
-             styleUrls:   ['app.component.scss']
-           })
+    selector: 'app-root',
+    templateUrl: 'app.component.html',
+    styleUrls: ['app.component.scss'],
+    standalone: false
+})
 export class AppComponent {
   constructor(
     private readonly platform: Platform,
-    private readonly splashScreen: SplashScreen,
-    private readonly statusBar: StatusBar,
     private readonly translate: TranslateService,
     public readonly options: OptionsService,
   ) {
+    addIcons(APP_ICONS)
     this.initializeApp();
   }
 
@@ -28,8 +28,6 @@ export class AppComponent {
     // the lang to use, if the lang isn't available, it will use the current loader to get them
     this.translate.use(this.options.values.language).subscribe(() => {
       this.platform.ready().then(() => {
-        this.statusBar.styleDefault();
-        this.splashScreen.hide();
       });
     });
   }

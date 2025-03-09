@@ -4,8 +4,9 @@ import {ILesson, ILessonPart} from '../@types/app.types';
 import {lessonName} from '../utils/utils';
 
 @Pipe({
-        name: 'lessonName'
-      })
+    name: 'lessonName',
+    standalone: false
+})
 export class LessonNamePipe implements PipeTransform {
 
   constructor(

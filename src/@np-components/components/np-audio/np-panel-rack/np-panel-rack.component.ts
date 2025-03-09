@@ -1,10 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
-             selector:    'np-panel-rack',
-             templateUrl: './np-panel-rack.component.html',
-             styleUrls:   ['./np-panel-rack.component.scss'],
-           })
+    selector: 'np-panel-rack',
+    templateUrl: './np-panel-rack.component.html',
+    styleUrls: ['./np-panel-rack.component.scss'],
+    standalone: false
+})
 export class NPPanelRackComponent implements OnInit {
 
   @Input() toolbar: boolean;

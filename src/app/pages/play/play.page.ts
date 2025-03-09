@@ -1,19 +1,20 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {TranslateService} from '@ngx-translate/core';
-import {Subscription} from 'rxjs';
-import {INPPianoRollKey} from '../../../@np-components/@types/np-audio.types';
-import {NPPianoRollService} from '../../../@np-components/services/np-audio/np-piano-roll.service';
-import {CTEXTS} from '../../@consts/texts.consts';
-import {LessonsService} from '../../services/lessons.service';
-import {OptionsService} from '../../services/options.service';
-import {CLessonBundleIndex} from '../../utils/lesson.factory';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
+import { INPPianoRollKey } from '../../../@np-components/@types/np-audio.types';
+import { NPPianoRollService } from '../../../@np-components/services/np-audio/np-piano-roll.service';
+import { CTEXTS } from '../../@consts/texts.consts';
+import { LessonsService } from '../../services/lessons.service';
+import { OptionsService } from '../../services/options.service';
+import { CLessonBundleIndex } from '../../utils/lesson.factory';
 
 @Component({
-             selector:    'app-play-page',
-             templateUrl: './play.page.html',
-             styleUrls:   ['./play.page.scss'],
-           })
+    selector: 'app-play-page',
+    templateUrl: './play.page.html',
+    styleUrls: ['./play.page.scss'],
+    standalone: false
+})
 export class PlayPage implements OnInit, OnDestroy {
   CTEXTS = CTEXTS;
   private routeSub: Subscription;
@@ -31,7 +32,7 @@ export class PlayPage implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.routeSub = this.route.params.subscribe(params => {
-      if (params.type === 'free') {
+      if (params['type'] === 'free') {
         this.lessonService.startBundle(CLessonBundleIndex.Freeplay);
       }
       if (!this.lessonService.hasLesson) {

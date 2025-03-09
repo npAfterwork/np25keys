@@ -4,10 +4,11 @@ import {INPPianoRollKey} from '../../../@types/np-audio.types';
 
 
 @Component({
-             selector:    'np-piano-roll',
-             templateUrl: './np-piano-roll.component.html',
-             styleUrls:   ['./np-piano-roll.component.scss'],
-           })
+    selector: 'np-piano-roll',
+    templateUrl: './np-piano-roll.component.html',
+    styleUrls: ['./np-piano-roll.component.scss'],
+    standalone: false
+})
 export class NPPianoRollComponent {
 
   @Input() keys: INPPianoRollKey[] = [];

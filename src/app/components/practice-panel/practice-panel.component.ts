@@ -4,9 +4,10 @@ import {LessonsService} from '../../services/lessons.service';
 import {NavigateService} from '../../services/navigate.service';
 
 @Component({
-  selector: 'app-practice-panel',
-  templateUrl: './practice-panel.component.html',
-  styleUrls: ['./practice-panel.component.scss'],
+    selector: 'app-practice-panel',
+    templateUrl: './practice-panel.component.html',
+    styleUrls: ['./practice-panel.component.scss'],
+    standalone: false
 })
 export class PracticePanelComponent implements OnInit {
   CTEXTS = CTEXTS;

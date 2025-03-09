@@ -3,10 +3,11 @@ import {NPAudioService} from '../../../../@np-components/services/np-audio/np-au
 import {CTEXTS} from '../../../@consts/texts.consts';
 
 @Component({
-             selector:    'app-options-audio-panel',
-             templateUrl: './audio-options-panel.component.html',
-             styleUrls:   ['./audio-options-panel.component.scss'],
-           })
+    selector: 'app-options-audio-panel',
+    templateUrl: './audio-options-panel.component.html',
+    styleUrls: ['./audio-options-panel.component.scss'],
+    standalone: false
+})
 export class AudioOptionsPanelComponent implements OnInit {
   CTEXTS = CTEXTS;
 

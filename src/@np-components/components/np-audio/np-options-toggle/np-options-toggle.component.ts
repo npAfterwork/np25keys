@@ -4,17 +4,18 @@ import {TTextID} from '../../../@types/np.types';
 import {NPBaseValueAccessor} from '../../base/np-base-value-accessor';
 
 @Component({
-             selector:    'np-options-toggle',
-             templateUrl: './np-options-toggle.component.html',
-             styleUrls:   ['./np-options-toggle.component.scss'],
-             providers:   [
-               {
-                 provide:     NG_VALUE_ACCESSOR,
-                 useExisting: forwardRef(() => NPOptionsToggleComponent),
-                 multi:       true
-               }
-             ]
-           })
+    selector: 'np-options-toggle',
+    templateUrl: './np-options-toggle.component.html',
+    styleUrls: ['./np-options-toggle.component.scss'],
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => NPOptionsToggleComponent),
+            multi: true
+        }
+    ],
+    standalone: false
+})
 export class NPOptionsToggleComponent extends NPBaseValueAccessor<boolean> implements OnInit {
 
   @Input() label: TTextID;

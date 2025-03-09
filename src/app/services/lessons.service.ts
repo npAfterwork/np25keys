@@ -1,11 +1,11 @@
-import {Injectable, OnDestroy} from '@angular/core';
-import {IMidiEvent} from '../../@np-components/@types/np-audio.types';
-import {THexColor} from '../../@np-components/@types/np.types';
-import {keysToNames, lessonNotesToNames, notesToNames} from '../../@np-components/utils/np-audio-utils';
-import {CTEXTS} from '../@consts/texts.consts';
-import {ILesson, ILessonPack, TInfoDisplayMode} from '../@types/app.types';
-import {lessonName, reduceLessonNotes} from '../utils/utils';
-import {LessonsDatastore} from './lessons.datastore';
+import { Injectable, OnDestroy } from '@angular/core';
+import { IMidiEvent } from '../../@np-components/@types/np-audio.types';
+import { THexColor } from '../../@np-components/@types/np.types';
+import { keysToNames, lessonNotesToNames, notesToNames } from '../../@np-components/utils/np-audio-utils';
+import { CTEXTS } from '../@consts/texts.consts';
+import { ILesson, ILessonPack, TInfoDisplayMode } from '../@types/app.types';
+import { lessonName, reduceLessonNotes } from '../utils/utils';
+import { LessonsDatastore } from './lessons.datastore';
 
 @Injectable({
               providedIn: 'root'
@@ -68,7 +68,7 @@ export class LessonsService extends LessonsDatastore implements OnDestroy {
     this.update(advanced);
   }
 
-  protected onMidiMessage(ev: IMidiEvent) {
+  protected override onMidiMessage(ev: IMidiEvent) {
     super.onMidiMessage(ev);
     if (this.checkNotes()) {
       this.advanceNotes();

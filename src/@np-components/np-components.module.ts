@@ -3,7 +3,6 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {IonicModule} from '@ionic/angular';
 import {TranslateModule} from '@ngx-translate/core';
-import {AngularResizeEventModule} from 'angular-resize-event';
 import {NPMidiDeviceInfoComponent} from './components/np-audio/np-midi-panel/np-midi-device-info.component';
 import {NPOptionsToggleComponent} from './components/np-audio/np-options-toggle/np-options-toggle.component';
 import {NPTogglePanelComponent} from './components/np-audio/np-toggle-panel/np-toggle-panel.component';
@@ -33,8 +32,7 @@ const components = [
         CommonModule,
         FormsModule,
         IonicModule,
-        TranslateModule.forChild(),
-        AngularResizeEventModule
+        TranslateModule.forChild()
     ],
     declarations: [
         components

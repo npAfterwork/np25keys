@@ -8,10 +8,11 @@ import {NavigateService} from '../../../services/navigate.service';
 import {OptionsService} from '../../../services/options.service';
 
 @Component({
-             selector:    'app-options-panel',
-             templateUrl: './options-panel.component.html',
-             styleUrls:   ['./options-panel.component.scss'],
-           })
+    selector: 'app-options-panel',
+    templateUrl: './options-panel.component.html',
+    styleUrls: ['./options-panel.component.scss'],
+    standalone: false
+})
 export class OptionsPanelComponent implements OnInit {
   CTEXTS = CTEXTS;
   @Input() tab: TOptionsTabs = 'roll';

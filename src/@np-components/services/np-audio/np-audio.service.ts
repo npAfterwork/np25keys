@@ -1,12 +1,12 @@
-import {Injectable, OnDestroy} from '@angular/core';
-import {Howl} from 'howler';
-import {BehaviorSubject, Subscription} from 'rxjs';
-import {CLS_KEY_OPTIONS_AUDIO} from '../../@consts/np-audio.consts';
-import {ENOTES} from '../../@consts/np-note.consts';
-import {IMidiEvent, INPInstrument, TNPInstrumentName} from '../../@types/np-audio.types';
-import {TFilename} from '../../@types/np.types';
-import {NPDataStore} from '../../base/np-data-store';
-import {NPMidiService} from './np-midi.service';
+import { Injectable, OnDestroy } from '@angular/core';
+import { Howl } from 'howler';
+import { BehaviorSubject, Subscription } from 'rxjs';
+import { CLS_KEY_OPTIONS_AUDIO } from '../../@consts/np-audio.consts';
+import { ENOTES } from '../../@consts/np-note.consts';
+import { IMidiEvent, INPInstrument, TNPInstrumentName } from '../../@types/np-audio.types';
+import { TFilename } from '../../@types/np.types';
+import { NPDataStore } from '../../base/np-data-store';
+import { NPMidiService } from './np-midi.service';
 
 @Injectable({
               providedIn: 'root'
@@ -126,7 +126,7 @@ export class NPAudioService implements OnDestroy {
       const speed = (1000 / (this.options.metroSpeed / 60));
       this.metronomeID = setInterval(() => {
         this.metronome.play();
-      }, speed);
+      }, speed) as unknown as number;
     }
   }
 

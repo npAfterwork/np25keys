@@ -1,3 +1,6 @@
+@use "@np-components/styles/mixins/np-audio-mixins" as audio;
+@use "@np-components/styles/mixins/np-mixins" as mixins;
+
 /*
  * App Global CSS
  * ----------------------------------------------------------------------------
@@ -10,21 +13,31 @@
  */
 
 /* Core CSS required for Ionic components to work properly */
-@import "~@ionic/angular/css/core.css";
+@import "@ionic/angular/css/core.css";
 
 /* Basic CSS for apps built with Ionic */
-@import "~@ionic/angular/css/normalize.css";
-@import "~@ionic/angular/css/structure.css";
-@import "~@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
 
 /* np-audio and np-utils **/
-@import "@np-components/styles/utils/np-ion-utils";
-@import "@np-components/styles/np-audio";
-@import "@np-components/styles/utils/np-utils";
-@import "@np-components/styles/utils/np-flex-utils";
+@import "@np-components/styles/utils/np-ion-utils.css";
+@import "@np-components/styles/utils/np-utils.css";
+
+div.scroll {
+  @include mixins.np-scroll();
+}
+
+.np-clickable {
+  @include mixins.np-clickable();
+}
+@import "@np-components/styles/utils/np-flex-utils.css";
 
 /* App CSS np-25-keys **/
-@import "theme/styles";
+@import "theme/_styles.css";
+html, body {
+  @include audio.np-device-frame;
+}
 
 // debug
 //@import "theme/debug";

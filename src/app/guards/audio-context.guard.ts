@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {CanActivate, UrlTree} from '@angular/router';
+import { UrlTree } from '@angular/router';
 import {Observable} from 'rxjs';
 import {NPAudioService} from '../../@np-components/services/np-audio/np-audio.service';
 import {CINSTRUMENTS, CMETRONOME} from '../@consts/app.consts';
@@ -7,7 +7,7 @@ import {CINSTRUMENTS, CMETRONOME} from '../@consts/app.consts';
 @Injectable({
               providedIn: 'root'
             })
-export class AudioContextGuard implements CanActivate {
+export class AudioContextGuard  {
 
   constructor(
     private readonly audioService: NPAudioService,

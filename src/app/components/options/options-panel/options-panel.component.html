@@ -17,7 +17,7 @@
 </ion-tab-bar>
 <div class="scroll">
     <div [hidden]="tab !== 'roll'">
-        <np-toggle-panel [headline]="CTEXTS.OPTIONS.UI.title" [subline]="CTEXTS.OPTIONS.UI.subtitle" [open]="true" headerClickOnly="true">
+        <np-toggle-panel [headline]="CTEXTS.OPTIONS.UI.title" [subline]="CTEXTS.OPTIONS.UI.subtitle" [open]="true" [headerClickOnly]="true">
             <np-pad-panel label="Presets" class="text-btns">
                 <np-mpc-pad label="xs" (click)="applyPreset('xs')"></np-mpc-pad>
                 <np-mpc-pad label="s" (click)="applyPreset('s')"></np-mpc-pad>
@@ -28,23 +28,23 @@
             </np-pad-panel>
             <app-options-ui-panel></app-options-ui-panel>
         </np-toggle-panel>
-        <np-toggle-panel [headline]="CTEXTS.OPTIONS.PIANOROLL.title" [subline]="CTEXTS.OPTIONS.PIANOROLL.subtitle" [open]="false" headerClickOnly="true">
+        <np-toggle-panel [headline]="CTEXTS.OPTIONS.PIANOROLL.title" [subline]="CTEXTS.OPTIONS.PIANOROLL.subtitle" [open]="false" [headerClickOnly]="true">
             <app-options-roll-panel></app-options-roll-panel>
         </np-toggle-panel>
-        <np-toggle-panel [headline]="CTEXTS.OPTIONS.EXTRA.title" [subline]="CTEXTS.OPTIONS.EXTRA.subtitle" [open]="false" headerClickOnly="true">
+        <np-toggle-panel [headline]="CTEXTS.OPTIONS.EXTRA.title" [subline]="CTEXTS.OPTIONS.EXTRA.subtitle" [open]="false" [headerClickOnly]="true">
             <app-options-extra-panel></app-options-extra-panel>
         </np-toggle-panel>
     </div>
     <div [hidden]="tab !== 'audio'">
-        <np-toggle-panel [headline]="CTEXTS.OPTIONS.AUDIO.title" [subline]="CTEXTS.OPTIONS.AUDIO.subtitle" headerClickOnly="true">
+        <np-toggle-panel [headline]="CTEXTS.OPTIONS.AUDIO.title" [subline]="CTEXTS.OPTIONS.AUDIO.subtitle" [headerClickOnly]="true">
             <app-options-audio-panel></app-options-audio-panel>
         </np-toggle-panel>
-        <np-toggle-panel [headline]="CTEXTS.OPTIONS.AUDIO.titlemidi" [subline]="CTEXTS.OPTIONS.AUDIO.subtitlemidi" headerClickOnly="true">
+        <np-toggle-panel [headline]="CTEXTS.OPTIONS.AUDIO.titlemidi" [subline]="CTEXTS.OPTIONS.AUDIO.subtitlemidi" [headerClickOnly]="true">
             <np-midi-device-info></np-midi-device-info>
         </np-toggle-panel>
     </div>
     <div [hidden]="tab !== 'common'">
-        <np-toggle-panel [headline]="CTEXTS.OPTIONS.COMMON.title" [subline]="CTEXTS.OPTIONS.COMMON.subtitle" headerClickOnly="true">
+        <np-toggle-panel [headline]="CTEXTS.OPTIONS.COMMON.title" [subline]="CTEXTS.OPTIONS.COMMON.subtitle" [headerClickOnly]="true">
             <ion-list class="np-audio-device-panel-inlay">
                 <ion-item>
                     <ion-label>{{CTEXTS.OPTIONS.COMMON.language | translate}}</ion-label>

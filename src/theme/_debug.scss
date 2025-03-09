@@ -1,4 +1,4 @@
-@use "breakpoints.mixins" as breaks;
+@use "./breakpoints.mixins" as breaks;
 // TODO: @debug only
 // @Beware: using inside breaks from 0 to break-point makes the order counts (latest rule wins)
 @include breaks.inside-retina {

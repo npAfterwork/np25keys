@@ -4,9 +4,10 @@ import {NavigateService} from '../../services/navigate.service';
 import {OptionsService} from '../../services/options.service';
 
 @Component({
-  selector:    'app-home-page',
-  templateUrl: 'home.page.html',
-  styleUrls:   ['home.page.scss']
+    selector: 'app-home-page',
+    templateUrl: 'home.page.html',
+    styleUrls: ['home.page.scss'],
+    standalone: false
 })
 export class HomePage {
   CTEXTS = CTEXTS;

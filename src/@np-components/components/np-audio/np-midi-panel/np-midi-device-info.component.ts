@@ -5,10 +5,11 @@ import {IMidiEvent} from '../../../@types/np-audio.types';
 import {NPMidiService} from '../../../services/np-audio/np-midi.service';
 
 @Component({
-             selector:    'np-midi-device-info',
-             templateUrl: './np-midi-device-info.component.html',
-             styleUrls:   ['./np-midi-device-info.component.scss'],
-           })
+    selector: 'np-midi-device-info',
+    templateUrl: './np-midi-device-info.component.html',
+    styleUrls: ['./np-midi-device-info.component.scss'],
+    standalone: false
+})
 export class NPMidiDeviceInfoComponent implements OnInit, OnDestroy{
   readonly CTEXTS = CNPAUDIO_TEXTS;
   currentDevice: WebMidi.MIDIInput;

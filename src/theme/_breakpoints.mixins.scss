@@ -6,5 +6,4 @@ $np-break-tablet-sm: 1024px !default; // end tablet-sm
 $np-break-tablet: 1280px !default; // end tablet -> start desktop
 $np-break-desktop-sm: 1600px !default; // end desktop-sm
 $np-break-desktop: 1920px !default; // end desktop -> start retina
-@import "~src/@np-components/styles/mixins/np-breaks";
-
+@forward "../@np-components/styles/mixins/np-breaks";

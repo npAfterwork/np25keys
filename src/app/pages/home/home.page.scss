@@ -1,5 +1,5 @@
-@use "~src/@np-components/styles/mixins/np-audio-mixins" as audio;
-@use "~src/@np-components/styles/mixins/np-mixins" as mixins;
+@use "../../../@np-components/styles/mixins/np-audio-mixins" as audio;
+@use "../../../@np-components/styles/mixins/np-mixins" as mixins;
 @use "../../../theme/breakpoints.mixins" as breaks;
 
 :host {

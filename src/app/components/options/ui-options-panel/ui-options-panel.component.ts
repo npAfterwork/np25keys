@@ -4,10 +4,11 @@ import {CTEXTS} from '../../../@consts/texts.consts';
 import {DialogsService} from '../../../services/dialogs.service';
 import {OptionsService} from '../../../services/options.service';
 @Component({
-             selector:    'app-options-ui-panel',
-             templateUrl: './ui-options-panel.component.html',
-             styleUrls:   ['./ui-options-panel.component.scss'],
-           })
+    selector: 'app-options-ui-panel',
+    templateUrl: './ui-options-panel.component.html',
+    styleUrls: ['./ui-options-panel.component.scss'],
+    standalone: false
+})
 export class UIOptionsPanelComponent implements OnInit {
   CTEXTS = CTEXTS;
 

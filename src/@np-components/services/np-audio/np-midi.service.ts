@@ -1,5 +1,5 @@
-import {EventEmitter, Injectable} from '@angular/core';
-import {IMidiEvent} from '../../@types/np-audio.types';
+import { EventEmitter, Injectable } from '@angular/core';
+import { IMidiEvent } from '../../@types/np-audio.types';
 
 @Injectable({
               providedIn: 'root'
@@ -44,6 +44,7 @@ export class NPMidiService {
     } else {
       console.log('WebMIDI is not supported in this device.');
     }
+    return this.currentDevice;
   }
 
   /**

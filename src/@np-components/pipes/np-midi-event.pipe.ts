@@ -4,8 +4,9 @@ import {IMidiEvent} from '../@types/np-audio.types';
 import {noteIdxToName, noteIdxToOctave} from '../utils/np-audio-utils';
 
 @Pipe({
-        name: 'npMidiEvent'
-      })
+    name: 'npMidiEvent',
+    standalone: false
+})
 export class NPMidiEventPipe implements PipeTransform {
 
   constructor(

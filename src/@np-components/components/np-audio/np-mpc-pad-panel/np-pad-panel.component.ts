@@ -1,10 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
-             selector:    'np-pad-panel',
-             templateUrl: './np-pad-panel.component.html',
-             styleUrls:   ['./np-pad-panel.component.scss'],
-           })
+    selector: 'np-pad-panel',
+    templateUrl: './np-pad-panel.component.html',
+    styleUrls: ['./np-pad-panel.component.scss'],
+    standalone: false
+})
 export class NPPadPanelComponent implements OnInit {
 
   @Input() label: string;

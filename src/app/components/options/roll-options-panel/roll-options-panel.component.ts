@@ -3,10 +3,11 @@ import {NPPianoRollService} from '../../../../@np-components/services/np-audio/n
 import {CTEXTS} from '../../../@consts/texts.consts';
 import {OptionsService} from '../../../services/options.service';
 @Component({
-             selector:    'app-options-roll-panel',
-             templateUrl: './roll-options-panel.component.html',
-             styleUrls:   ['./roll-options-panel.component.scss'],
-           })
+    selector: 'app-options-roll-panel',
+    templateUrl: './roll-options-panel.component.html',
+    styleUrls: ['./roll-options-panel.component.scss'],
+    standalone: false
+})
 export class RollOptionsPanelComponent implements OnInit {
   CTEXTS = CTEXTS;
 
