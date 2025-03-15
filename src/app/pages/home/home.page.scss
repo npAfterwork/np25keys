@@ -13,16 +13,14 @@
     --np-pad-icon-size: 60px;
     --np-pad-icon-color-rgb: 255, 200, 34;
     --np-pad-text-color-rgb: 255, 200, 34;
-    //--np-pad-text-color-rgb: var(--np-pad-light-rgb);
+
     @include audio.np-device-panel-inlay();
     @include mixins.np-flex-row(center, center, wrap);
     margin: 0; // should always be margin 0 and padding from parent... TODO:css layouting
     padding: .5rem;
     flex: 1;
   }
-}
 
-:host{
   @include breaks.inside-mobile {
     np-mpc-pad {
       --np-pad-desc-display: none;

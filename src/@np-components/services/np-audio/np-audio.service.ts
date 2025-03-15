@@ -1,4 +1,4 @@
-import { Injectable, OnDestroy, inject } from '@angular/core';
+import { inject, Injectable, OnDestroy } from '@angular/core';
 import { Howl } from 'howler';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { CLS_KEY_OPTIONS_AUDIO } from '../../@consts/np-audio.consts';
@@ -102,15 +102,20 @@ export class NPAudioService implements OnDestroy {
 
   async initialize(instrument: INPInstrument, metronome: TFilename) {
     if (this.evSub) return true;
-    this.evSub = this.midiService.onMessage$.subscribe((ev => this.onMidiMessage(ev)));
+    try{
+      this.evSub = this.midiService.onMessage$.subscribe((ev => this.onMidiMessage(ev)));
 
-    this.addInstrument(instrument);
-    this.save.instrument(instrument.name);
-    // this.loadInstrument(this.options.instrument); <- save does this...
-    this.addMetronome(metronome);
-    this.loadMetronome();
+      this.addInstrument(instrument);
+      this.save.instrument(instrument.name);
+      // this.loadInstrument(this.options.instrument); <- save does this...
+      this.addMetronome(metronome);
+      this.loadMetronome();
 
-    await this.midiService.connect();
+      await this.midiService.connect();
+    }catch(e){
+      console.error(e);
+      return false;
+    }
     return true;
   }
 

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { TranslatePipe } from '@ngx-translate/core';
 
@@ -7,14 +7,9 @@ import { TranslatePipe } from '@ngx-translate/core';
   templateUrl: './np-pad-panel.component.html',
   styleUrls: ['./np-pad-panel.component.scss'], imports: [TranslatePipe],
 })
-export class NPPadPanelComponent implements OnInit {
+export class NPPadPanelComponent  {
 
   @Input() label: string;
 
-  constructor(
-  ) { }
-
-
-  ngOnInit() {}
 
 }

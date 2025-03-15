@@ -1,4 +1,4 @@
-import {BehaviorSubject, Observable} from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 type TNPDataStoreEntry<T> = BehaviorSubject<T>;
 type TNPDataStoreSetter<T extends INPDataStoreModel, key extends keyof T> = (value: T[key], store: NPDataStore<T>) => T[key] | void;
@@ -30,7 +30,7 @@ export class NPDataStore<T extends INPDataStoreModel, K extends T = T> {
 
   value: { [key in keyof T]: T[key] } = (() => {
     let result = {};
-    Object.keys(this.dataStore).map(key => {
+    Object.keys(this.dataStore).forEach(key => {
       result[key] = this.store[key].value = this.dataStore[key].value;
     });
     return result as { [key in keyof T]: T[key] };
@@ -56,7 +56,7 @@ export class NPDataStore<T extends INPDataStoreModel, K extends T = T> {
 
   save: { [key in keyof T]: (value: T[key]) => void } = (() => {
       let result = {};
-      Object.keys(this.dataStore).map(key => {
+      Object.keys(this.dataStore).forEach(key => {
         result[key] = this.store[key].save = (value) => {
           this.next[key](value);
           this.writeToStorage();

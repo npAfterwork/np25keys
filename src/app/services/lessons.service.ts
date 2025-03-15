@@ -72,15 +72,10 @@ export class LessonsService extends LessonsDatastore implements OnDestroy {
     super.onMidiMessage(ev);
     if (this.checkNotes()) {
       this.advanceNotes();
-    } else {
-      if (ev.pressed)
-        this.texts.mainInfo(this.getMainText());
-    }
+    } else if (ev.pressed) this.texts.mainInfo(this.getMainText());
     // TODO: freeplay
     if (this.isFreeplay) {
-      // const texts = [keysToNames(([].concat(this.played)).reverse())];
-      const texts = [keysToNames(this.played)];
-      this.texts.mainInfo(texts);
+      this.texts.mainInfo([keysToNames(this.played)]);
     }
   }
 
@@ -196,21 +191,31 @@ export class LessonsService extends LessonsDatastore implements OnDestroy {
     switch (mode) {
       case 'part':
       case 'part-compact':
-        const part = this.translate.instant(CTEXTS.LESSONS.part);
-        const pname = lessonName(this.translate, this.lesson, this.lessonPart);
-        return (mode === 'part' ? part : '') + pname;
+        return this.getPartInfoText(mode);
       case 'lesson':
       case 'lesson-compact':
-        const lesson = this.translate.instant(CTEXTS.LESSONS.lesson);
-        const lname = this.translate.instant(this.lesson.name);
-        return (mode === 'lesson' ? lesson : '') + lname;
+        return this.#getLessonInfoText(mode);
       case 'bundle':
       case 'bundle-compact':
-        const bundle = this.translate.instant(CTEXTS.LESSONS.bundle);
-        const bname = this.translate.instant(this.pack.name);
-        return (mode === 'bundle' ? bundle : '') + bname;
+        return this.#getBundleInfoText(mode);
     }
   }
+
+  #getBundleInfoText = (mode: 'bundle' | 'bundle-compact') => {
+    const bundle = this.translate.instant(CTEXTS.LESSONS.bundle);
+    const bname = this.translate.instant(this.pack.name);
+    return (mode === 'bundle' ? bundle : '') + bname;
+  };
+  #getLessonInfoText = (mode: 'lesson' | 'lesson-compact') => {
+    const lesson = this.translate.instant(CTEXTS.LESSONS.lesson);
+    const lname = this.translate.instant(this.lesson.name);
+    return (mode === 'lesson' ? lesson : '') + lname;
+  };
+  private getPartInfoText = (mode: 'part' | 'part-compact') => {
+    const part = this.translate.instant(CTEXTS.LESSONS.part);
+    const pname = lessonName(this.translate, this.lesson, this.lessonPart);
+    return (mode === 'part' ? part : '') + pname;
+  };
 
   protected getMainText() {
     if (!this.hasLesson) return [''];

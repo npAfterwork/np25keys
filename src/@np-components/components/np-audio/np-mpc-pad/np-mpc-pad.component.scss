@@ -44,9 +44,7 @@ $shadow: 5px;
     text-overflow: ellipsis;
     text-align: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.76);
-    //font-weight: bold;
     color: rgba(var(--np-pad-text-color-rgb), .65);
-    //color: rgba(var(--np-pad-light-rgb), .65);
     padding: .5rem 1rem 0 1rem;
 
   }
@@ -82,7 +80,6 @@ $shadow: 5px;
 
       .np-mpc-label, .np-mpc-desc {
         color: rgba(var(--np-pad-text-color-rgb), .85);
-        //color: rgba(var(--np-pad-light-rgb), .85);
         text-shadow: 0 0 2px rgba(var(--np-pad-text-color-rgb), .85);
       }
     }
@@ -102,9 +99,6 @@ $shadow: 5px;
 
       .np-mpc-label, .np-mpc-desc {
         color: rgba(var(--np-pad-text-color-rgb), 1);
-        //color: rgba(var(--np-pad-light-rgb), .85);
-
-        //text-shadow: 0 0 3px rgba(var(--np-pad-text-color-rgb), 1);
         text-shadow: 0 0 3px rgba(var(--np-pad-light-rgb), 1);
       }
     }

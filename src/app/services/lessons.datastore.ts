@@ -1,14 +1,14 @@
-import { Injectable, inject } from '@angular/core';
-import {TranslateService} from '@ngx-translate/core';
-import {BehaviorSubject, Subscription} from 'rxjs';
-import {ENOTES} from '../../@np-components/@consts/np-note.consts';
-import {IMidiEvent, INPPianoRollKey} from '../../@np-components/@types/np-audio.types';
-import {NPDataStore} from '../../@np-components/base/np-data-store';
-import {NPAudioService} from '../../@np-components/services/np-audio/np-audio.service';
-import {NPMidiService} from '../../@np-components/services/np-audio/np-midi.service';
-import {NPPianoRollService} from '../../@np-components/services/np-audio/np-piano-roll.service';
-import {CLS_KEY_LESSONS} from '../@consts/app.consts';
-import {ILesson, ILessonPack, ILessonPart, TInfoDisplayMode, TLoopMode, TMainDisplayMode} from '../@types/app.types';
+import { inject, Injectable } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { BehaviorSubject, Subscription } from 'rxjs';
+import { ENOTES } from '../../@np-components/@consts/np-note.consts';
+import { IMidiEvent, INPPianoRollKey } from '../../@np-components/@types/np-audio.types';
+import { NPDataStore } from '../../@np-components/base/np-data-store';
+import { NPAudioService } from '../../@np-components/services/np-audio/np-audio.service';
+import { NPMidiService } from '../../@np-components/services/np-audio/np-midi.service';
+import { NPPianoRollService } from '../../@np-components/services/np-audio/np-piano-roll.service';
+import { CLS_KEY_LESSONS } from '../@consts/app.consts';
+import { ILesson, ILessonPack, ILessonPart, TInfoDisplayMode, TLoopMode, TMainDisplayMode } from '../@types/app.types';
 
 @Injectable()
 export class LessonsDatastore {
@@ -18,7 +18,7 @@ export class LessonsDatastore {
   protected readonly pianoRoll = inject(NPPianoRollService);
 
 
-  private messageStore = new NPDataStore({
+  private readonly messageStore = new NPDataStore({
                                            leftInfo:  new BehaviorSubject<string>(''),
                                            rightInfo: new BehaviorSubject<string>(''),
                                            mainInfo:  new BehaviorSubject<string[]>(['']),
@@ -27,10 +27,10 @@ export class LessonsDatastore {
 
   public texts$ = this.messageStore.get$;
   public texts = this.messageStore.next;
-  private metronome = new BehaviorSubject<boolean>(false);
+  private readonly metronome = new BehaviorSubject<boolean>(false);
   public metronome$ = this.metronome.asObservable();
 
-  private optionsStore = new NPDataStore({
+  private readonly optionsStore = new NPDataStore({
                                            currentBundle:    new BehaviorSubject<number>(-1), // TODO: current progrss
                                            currentLessonIdx: new BehaviorSubject<number>(-1),
                                            loop:             new BehaviorSubject<TLoopMode>('none'),
@@ -56,7 +56,7 @@ export class LessonsDatastore {
   protected pressed: BehaviorSubject<INPPianoRollKey[]> = new BehaviorSubject<INPPianoRollKey[]>([]);
   public readonly pressed$ = this.pressed.asObservable();
 
-  private maxInput = 25;
+  private readonly maxInput = 25;
 
   protected colors = [
     '#179b29',
@@ -81,9 +81,7 @@ export class LessonsDatastore {
       const rollKey = this.pianoRoll.key(ev.noteIdx);
       pressed.push(rollKey);
       this.played.unshift(rollKey);
-      // this.played.push(rollKey);
       if (this.played.length >= this.maxInput) {
-        // this.played.shift();
         this.played.pop();
       }
     } else {
@@ -167,7 +165,8 @@ export class LessonsDatastore {
   }
 
   toggleLoop() {
-    this.save.loop(this.options.loop === 'lesson' ? 'section' : (this.options.loop === 'section') ? 'none' : 'lesson');
+    let nextLoopModeOnSection: TLoopMode = (this.options.loop === 'section') ? 'none' : 'lesson';
+    this.save.loop(this.options.loop === 'lesson' ? 'section' : nextLoopModeOnSection);
   }
 
   toggleMetronome() {

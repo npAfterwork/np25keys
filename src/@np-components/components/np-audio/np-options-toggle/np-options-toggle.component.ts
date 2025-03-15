@@ -1,4 +1,4 @@
-import { Component, forwardRef, Input, OnInit } from '@angular/core';
+import { Component, forwardRef, Input } from '@angular/core';
 import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { TTextID } from '../../../@types/np.types';
 import { NPBaseValueAccessor } from '../../base/np-base-value-accessor';
@@ -13,7 +13,7 @@ import { TranslatePipe } from '@ngx-translate/core';
     provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => NPOptionsToggleComponent), multi: true,
   }], imports: [IonItem, IonLabel, TranslatePipe, IonToggle, FormsModule],
 })
-export class NPOptionsToggleComponent extends NPBaseValueAccessor<boolean> implements OnInit {
+export class NPOptionsToggleComponent extends NPBaseValueAccessor<boolean>  {
 
   @Input() label: TTextID;
   @Input() desc: TTextID;
@@ -22,6 +22,5 @@ export class NPOptionsToggleComponent extends NPBaseValueAccessor<boolean> imple
     super();
   }
 
-  ngOnInit() {}
 
 }

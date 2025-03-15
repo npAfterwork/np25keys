@@ -196,13 +196,6 @@ $white-key-max-width: var(--np-white-key-max-width, 40em);
 
 
   }
-  //@media screen and (max-width: 720px) {
-  //  .note.black {
-  //    .note-name, .note-finger-set {
-  //      opacity: 0;
-  //    }
-  //  }
-  //}
 }
 
 @mixin key-styles-boxes() {
