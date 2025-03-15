@@ -1,4 +1,4 @@
-import { Component, HostBinding, HostListener, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, HostBinding, HostListener, input, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { TTextID } from '../../../@types/np.types';
 import { CAnimations } from '../../../utils/np-animations';
 import { preventEvent } from '../../../utils/np-utils';
@@ -13,15 +13,15 @@ import { TranslatePipe } from '@ngx-translate/core';
 })
 export class NPTogglePanelComponent implements OnInit, OnChanges {
 
-  @Input() headline: TTextID;
-  @Input() subline: TTextID;
-  @Input() compact = false;
+  readonly headline = input<TTextID>(undefined);
+  readonly subline = input<TTextID>(undefined);
+  readonly compact = input(false);
   @Input() open = true;
-  @Input() slow = false;
-  @Input() headerClickOnly: boolean;
+  readonly slow = input(false);
+  readonly headerClickOnly = input<boolean>(undefined);
 
   @HostListener('click') onComponentClick() {
-    if (!this.headerClickOnly) {
+    if (!this.headerClickOnly()) {
       this.open = !this.open;
     }
   }
@@ -34,7 +34,7 @@ export class NPTogglePanelComponent implements OnInit, OnChanges {
   ngOnInit() {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['headerClickOnly'] && this.headerClickOnly) {
+    if (changes['headerClickOnly'] && this.headerClickOnly()) {
       this.clickable = false;
     }
   }

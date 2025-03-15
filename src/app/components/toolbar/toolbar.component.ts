@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject, input } from '@angular/core';
 import { TTextID } from '../../../@np-components/@types/np.types';
 import { CTEXTS } from '../../@consts/texts.consts';
 import { TAppPages } from '../../@types/app.types';
@@ -18,10 +18,10 @@ export class ToolbarComponent implements OnInit, OnDestroy {
 
   CTEXTS = CTEXTS;
 
-  @Input() headline: TTextID;
-  @Input() subline: TTextID;
-  @Input() open: boolean = true;
-  @Input() currentPage: TAppPages = 'Home';
+  readonly headline = input<TTextID>(undefined);
+  readonly subline = input<TTextID>(undefined);
+  readonly open = input<boolean>(true);
+  readonly currentPage = input<TAppPages>('Home');
 
   ngOnInit() {
   }

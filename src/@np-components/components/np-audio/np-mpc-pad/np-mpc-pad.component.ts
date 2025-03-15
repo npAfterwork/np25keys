@@ -1,4 +1,4 @@
-import { Component, HostBinding, Input } from '@angular/core';
+import { Component, HostBinding, input } from '@angular/core';
 import { TIcon } from '../../../@types/np-ionic.types';
 import { IonIcon } from '@ionic/angular/standalone';
 import { TranslatePipe } from '@ngx-translate/core';
@@ -10,12 +10,14 @@ import { TranslatePipe } from '@ngx-translate/core';
   styleUrls: ['./np-mpc-pad.component.scss'], imports: [IonIcon, TranslatePipe],
 })
 export class NPMpcPadComponent {
-  @HostBinding('class.lit') @Input() lightup = false;
-  @HostBinding('class.active') @Input() active = false;
+  @HostBinding('class.lit')
+readonly lightup = input(false);
+  @HostBinding('class.active')
+readonly active = input(false);
 
-  @Input() label: string;
-  @Input() subtext: string;
-  @Input() icon: TIcon;
+  readonly label = input<string>(undefined);
+  readonly subtext = input<string>(undefined);
+  readonly icon = input<TIcon>(undefined);
 
 }
 

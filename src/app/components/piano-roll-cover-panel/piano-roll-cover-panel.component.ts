@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { INPPianoRollKey } from '../../../@np-components/@types/np-audio.types';
 
 
@@ -9,7 +9,7 @@ import { INPPianoRollKey } from '../../../@np-components/@types/np-audio.types';
   imports: [],
 })
 export class PianoRollCoverPanelComponent {
-  @Input() label = 'np25Keys';
-  @Input() keys: INPPianoRollKey[] = [];
+  readonly label = input('np25Keys');
+  readonly keys = input<INPPianoRollKey[]>([]);
 
 }

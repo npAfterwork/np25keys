@@ -1,4 +1,4 @@
-import { Component, forwardRef, Input } from '@angular/core';
+import { Component, forwardRef, input } from '@angular/core';
 import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { TTextID } from '../../../@types/np.types';
 import { NPBaseValueAccessor } from '../../base/np-base-value-accessor';
@@ -15,8 +15,8 @@ import { TranslatePipe } from '@ngx-translate/core';
 })
 export class NPOptionsToggleComponent extends NPBaseValueAccessor<boolean>  {
 
-  @Input() label: TTextID;
-  @Input() desc: TTextID;
+  readonly label = input<TTextID>(undefined);
+  readonly desc = input<TTextID>(undefined);
 
   constructor() {
     super();

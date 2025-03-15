@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
     selector: 'np-panel-rack',
@@ -7,6 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class NPPanelRackComponent {
 
-  @Input() toolbar: boolean;
+  readonly toolbar = input<boolean>(undefined);
 
 }

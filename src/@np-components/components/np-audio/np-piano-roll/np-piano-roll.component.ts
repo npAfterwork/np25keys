@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
+import { Component, HostListener, input, output } from '@angular/core';
 import { ENOTES } from '../../../@consts/np-note.consts';
 import { INPPianoRollKey } from '../../../@types/np-audio.types';
 
@@ -11,15 +11,15 @@ import { INPPianoRollKey } from '../../../@types/np-audio.types';
 })
 export class NPPianoRollComponent {
 
-  @Input() keys: INPPianoRollKey[] = [];
-  @Input() notes = true;
-  @Input() fingerset = true;
-  @Input() octave = true;
-  @Input() pressedByEvent = true;
-  @Input() lightup = true;
+  readonly keys = input<INPPianoRollKey[]>([]);
+  readonly notes = input(true);
+  readonly fingerset = input(true);
+  readonly octave = input(true);
+  readonly pressedByEvent = input(true);
+  readonly lightup = input(true);
 
-  @Output() npReleaseNote: EventEmitter<ENOTES> = new EventEmitter<ENOTES>();
-  @Output() npPressNote: EventEmitter<ENOTES> = new EventEmitter<ENOTES>();
+  readonly npReleaseNote = output<ENOTES>();
+  readonly npPressNote = output<ENOTES>();
 
   @HostListener('window:mouseup') onMouseUp() {
     if (this.pressedByPointer) {

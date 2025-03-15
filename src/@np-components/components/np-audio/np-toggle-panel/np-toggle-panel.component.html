@@ -1,12 +1,12 @@
-<div class="np-clickable" (click)="headerClickOnly ? toggleState($event) : undefined">
-    <div class="np-title np-standout">{{headline | translate}}</div>
+<div class="np-clickable" (click)="headerClickOnly() ? toggleState($event) : undefined">
+    <div class="np-title np-standout">{{headline() | translate}}</div>
     <div class="np-labels">
-        <div class="np-title np-title-placeholder">{{headline | translate}}</div>
-        <div class="np-subline">{{subline | translate}}</div>
+        <div class="np-title np-title-placeholder">{{headline() | translate}}</div>
+        <div class="np-subline">{{subline() | translate}}</div>
     </div>
-    <hr class="np-hr" [class.with-margin]="!compact">
+    <hr class="np-hr" [class.with-margin]="!compact()">
     <ng-content select="[np-fixed]"></ng-content>
 </div>
-<div class="np-content" [@collapseState]="open ? (slow ? 'expanded-slow':'expanded') : (slow ? 'collapsed-slow':'collapsed')">
+<div class="np-content" [@collapseState]="open ? (slow() ? 'expanded-slow':'expanded') : (slow() ? 'collapsed-slow':'collapsed')">
     <ng-content></ng-content>
 </div>

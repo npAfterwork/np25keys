@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { INPPianoRollKey } from '../../../@np-components/@types/np-audio.types';
 
 
@@ -9,5 +9,5 @@ import { INPPianoRollKey } from '../../../@np-components/@types/np-audio.types';
   imports: [],
 })
 export class PianoRollDisplayComponent {
-  @Input() keys: INPPianoRollKey[] = [];
+  readonly keys = input<INPPianoRollKey[]>([]);
 }

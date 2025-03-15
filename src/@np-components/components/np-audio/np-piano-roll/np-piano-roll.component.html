@@ -1,15 +1,15 @@
-@for (key of keys; track key) {
+@for (key of keys(); track key) {
   <div
     [style.--np-velocity]="key.velocity" [style.--np-key-color]="key.color"
     [class]="key.sharp ? 'note black': 'note white'"
-    [class.pressed]="pressedByEvent && key.pressed"
-    [class.lit]="lightup && key.lit"
+    [class.pressed]="pressedByEvent() && key.pressed"
+    [class.lit]="lightup() && key.lit"
     (mousedown)="keyPressedByPointer(key)"
     >
-    @if (notes) {
-      <span class="note-name">{{key.noteName}}{{octave ? key.octave : ''}}</span>
+    @if (notes()) {
+      <span class="note-name">{{key.noteName}}{{octave() ? key.octave : ''}}</span>
     }
-    @if (fingerset &&  (key.fingerset > 0)) {
+    @if (fingerset() &&  (key.fingerset > 0)) {
       <span class="note-finger-set">{{key.fingerset}}</span>
     }
   </div>

@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostBinding, Input, OnInit, inject } from '@angular/core';
+import { Component, ElementRef, HostBinding, OnInit, inject, input } from '@angular/core';
 import { CCSS_VAR_LINE_COUNT, CCSS_VAR_LINE_HEIGHT } from '../../../@consts/np-audio.consts';
 
 @Component({
@@ -9,17 +9,19 @@ import { CCSS_VAR_LINE_COUNT, CCSS_VAR_LINE_HEIGHT } from '../../../@consts/np-a
 export class NPRetroDisplayComponent implements OnInit {
   private readonly elementRef = inject(ElementRef);
 
-  @Input() multiline = false;
-  @Input() minLines = 1;
-  @Input() maxLines = 10;
-  @Input() lineHeight = 25;
-  @HostBinding('class.backlight') @Input() backlight = true;
-  @HostBinding('class.scanlines') @Input() scanlines = true;
+  readonly multiline = input(false);
+  readonly minLines = input(1);
+  readonly maxLines = input(10);
+  readonly lineHeight = input(25);
+  @HostBinding('class.backlight')
+readonly backlight = input(true);
+  @HostBinding('class.scanlines')
+readonly scanlines = input(true);
 
   ngOnInit() {}
 
   onResize = ($event) => {
-    const relLineHeight = this.lineHeight;
+    const relLineHeight = this.lineHeight();
     let lineCount = Math.trunc($event.newHeight / relLineHeight);
     // let relLineHeight = Math.trunc($event.newHeight / this.maxLines);
     // let lineCount = this.maxLines;
@@ -28,7 +30,7 @@ export class NPRetroDisplayComponent implements OnInit {
       lineCount--;
       // relLineHeight--;
     }
-    lineCount = Math.min(Math.max(this.minLines, lineCount), this.maxLines);
+    lineCount = Math.min(Math.max(this.minLines(), lineCount), this.maxLines());
     if (this.elementRef && this.elementRef.nativeElement) {
       this.elementRef.nativeElement.style.setProperty(CCSS_VAR_LINE_COUNT, lineCount);
       this.elementRef.nativeElement.style.setProperty(CCSS_VAR_LINE_HEIGHT, relLineHeight + 'px');

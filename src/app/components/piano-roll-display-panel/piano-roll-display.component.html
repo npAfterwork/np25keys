@@ -1,5 +1,5 @@
 <div class="keyboard">
-  @for (key of keys; track key) {
+  @for (key of keys(); track key) {
     <div
       [style.--np-key-color]="key.color"
       class="note"

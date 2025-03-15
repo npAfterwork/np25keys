@@ -1,7 +1,7 @@
-<span class="np-brand">{{label}}</span><span></span>
+<span class="np-brand">{{label()}}</span><span></span>
 <ng-content />
 <div class="content">
-  @for (key of keys; track key) {
+  @for (key of keys(); track key) {
     <div
       [class]="key.sharp ? 'note black': 'note white'">
       <span class="note-name">{{key.noteName}}</span>

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 import { TranslatePipe } from '@ngx-translate/core';
 
@@ -9,7 +9,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 })
 export class NPPadPanelComponent  {
 
-  @Input() label: string;
+  readonly label = input<string>(undefined);
 
 
 }
