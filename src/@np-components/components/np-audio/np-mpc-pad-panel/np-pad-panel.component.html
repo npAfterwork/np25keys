@@ -1,7 +1,7 @@
 <div class="np-pad-panel-inner">
-    <ng-container *ngIf="label">
-        <div>{{label | translate}}</div>
-        <hr>
-    </ng-container>
+  @if (label) {
+    <div>{{label | translate}}</div>
+    <hr>
+    }
     <ng-content></ng-content>
-</div>
+  </div>

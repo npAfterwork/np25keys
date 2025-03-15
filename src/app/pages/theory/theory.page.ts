@@ -17,7 +17,7 @@ import {
   NPPadPanelComponent,
 } from '../../../@np-components/components/np-audio/np-mpc-pad-panel/np-pad-panel.component';
 import { NPMpcPadComponent } from '../../../@np-components/components/np-audio/np-mpc-pad/np-mpc-pad.component';
-import { NgForOf } from '@angular/common';
+
 import { TranslateTheoryPipe } from '../../pipes/translate-theory.pipe';
 
 
@@ -25,7 +25,7 @@ import { TranslateTheoryPipe } from '../../pipes/translate-theory.pipe';
   selector: 'app-theory-page',
   templateUrl: './theory.page.html',
   styleUrls: ['./theory.page.scss'],
-  imports: [NPPanelRackComponent, ToolbarComponent, NPTogglePanelComponent, NPPadPanelComponent, NPMpcPadComponent, NgForOf, TranslateTheoryPipe],
+  imports: [NPPanelRackComponent, ToolbarComponent, NPTogglePanelComponent, NPPadPanelComponent, NPMpcPadComponent, TranslateTheoryPipe],
 })
 export class TheoryPage implements OnInit {
   readonly options = inject(OptionsService);

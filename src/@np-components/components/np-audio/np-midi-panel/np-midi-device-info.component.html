@@ -1,31 +1,35 @@
 <ion-list class="np-audio-device-panel-inlay">
-    <ion-grid *ngIf="currentDevice">
-        <ion-row>
-            <ion-col>{{CTEXTS.DEVICE.name | translate}}</ion-col>
-            <ion-col>{{currentDevice.name}}</ion-col>
-        </ion-row>
-        <ion-row>
-            <ion-col>{{CTEXTS.DEVICE.manufacturer | translate}}</ion-col>
-            <ion-col>{{currentDevice.manufacturer}}</ion-col>
-        </ion-row>
-        <ion-row>
-            <ion-col>{{CTEXTS.DEVICE.connection | translate}}</ion-col>
-            <ion-col>{{currentDevice.connection}}</ion-col>
-        </ion-row>
-        <ion-row>
-            <ion-col>{{CTEXTS.DEVICE.version | translate}}</ion-col>
-            <ion-col>{{currentDevice.version}}</ion-col>
-        </ion-row>
-        <ion-row>
-            <ion-col>{{CTEXTS.DEVICE.id | translate}}</ion-col>
-            <ion-col>{{currentDevice.id}}</ion-col>
-        </ion-row>
-        <ion-row>
-            <ion-col>{{CTEXTS.DEVICE.event | translate}}</ion-col>
-            <ion-col>{{lastEvent | npMidiEvent}}</ion-col>
-        </ion-row>
+  @if (currentDevice) {
+    <ion-grid>
+      <ion-row>
+        <ion-col>{{CTEXTS.DEVICE.name | translate}}</ion-col>
+        <ion-col>{{currentDevice.name}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>{{CTEXTS.DEVICE.manufacturer | translate}}</ion-col>
+        <ion-col>{{currentDevice.manufacturer}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>{{CTEXTS.DEVICE.connection | translate}}</ion-col>
+        <ion-col>{{currentDevice.connection}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>{{CTEXTS.DEVICE.version | translate}}</ion-col>
+        <ion-col>{{currentDevice.version}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>{{CTEXTS.DEVICE.id | translate}}</ion-col>
+        <ion-col>{{currentDevice.id}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>{{CTEXTS.DEVICE.event | translate}}</ion-col>
+        <ion-col>{{lastEvent | npMidiEvent}}</ion-col>
+      </ion-row>
     </ion-grid>
-    <ion-button *ngIf="!currentDevice" (click)="connect()" fill="clear" expand="full">
-        Connect to Midi-Device
+  }
+  @if (!currentDevice) {
+    <ion-button (click)="connect()" fill="clear" expand="full">
+      Connect to Midi-Device
     </ion-button>
+  }
 </ion-list>

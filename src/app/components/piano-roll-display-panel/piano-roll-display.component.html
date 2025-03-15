@@ -1,9 +1,11 @@
 <div class="keyboard">
-    <div *ngFor="let key of keys"
-         [style.--np-key-color]="key.color"
-         class="note"
-         [class]="key.sharp ? 'black': 'white'"
-         [class.lit]="key.lit"
-    >
+  @for (key of keys; track key) {
+    <div
+      [style.--np-key-color]="key.color"
+      class="note"
+      [class]="key.sharp ? 'black': 'white'"
+      [class.lit]="key.lit"
+      >
     </div>
+  }
 </div>

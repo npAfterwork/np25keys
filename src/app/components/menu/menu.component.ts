@@ -8,13 +8,13 @@ import {
 } from '../../../@np-components/components/np-audio/np-panel-rack/np-panel-rack.component';
 import { TranslatePipe } from '@ngx-translate/core';
 import { OptionsPanelComponent } from '../options/options-panel/options-panel.component';
-import { NgForOf } from '@angular/common';
+
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
-  imports: [IonMenu, IonContent, IonItem, IonMenuToggle, IonButton, IonIcon, IonLabel, TranslatePipe, OptionsPanelComponent, NPPanelRackComponent, NgForOf],
+  imports: [IonMenu, IonContent, IonItem, IonMenuToggle, IonButton, IonIcon, IonLabel, TranslatePipe, OptionsPanelComponent, NPPanelRackComponent],
 })
 export class MenuComponent {
   protected readonly navService = inject(NavigateService);

@@ -18,14 +18,14 @@ import {
   NPPadPanelComponent,
 } from '../../../@np-components/components/np-audio/np-mpc-pad-panel/np-pad-panel.component';
 import { NPMpcPadComponent } from '../../../@np-components/components/np-audio/np-mpc-pad/np-mpc-pad.component';
-import { NgForOf } from '@angular/common';
+
 import { LessonNamePipe } from '../../pipes/lesson-name.pipe';
 
 @Component({
   selector: 'app-lessons-page',
   templateUrl: './lessons.page.html',
   styleUrls: ['./lessons.page.scss'],
-  imports: [NPPanelRackComponent, ToolbarComponent, TranslatePipe, NPTogglePanelComponent, NPPadPanelComponent, NPMpcPadComponent, NgForOf, LessonNamePipe],
+  imports: [NPPanelRackComponent, ToolbarComponent, TranslatePipe, NPTogglePanelComponent, NPPadPanelComponent, NPMpcPadComponent, LessonNamePipe],
 })
 export class LessonsPage implements OnInit {
   readonly optionsService = inject(OptionsService);

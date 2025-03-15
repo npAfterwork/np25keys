@@ -1,19 +1,21 @@
 <np-panel-rack>
-    <app-toolbar np-toolbar currentPage="Theory"
-                 [headline]="CTEXTS.PAGES.theory"
-                 [subline]="CTEXTS.PAGES.theory_sub"
-    ></app-toolbar>
+  <app-toolbar np-toolbar currentPage="Theory"
+    [headline]="CTEXTS.PAGES.theory"
+    [subline]="CTEXTS.PAGES.theory_sub"
+  ></app-toolbar>
 
-    <np-toggle-panel *ngFor="let bundle of lessonBundles"
-                     [open]="tab === bundle.pack" [slow]="true"
-                     [headline]="bundle.name" [subline]="bundle.sub">
-        <np-pad-panel np-fixed label="...click to toggle">
-                <np-mpc-pad class="no-labels blue lit" icon="ribbon-sharp" (click)="navService.goToLessons($event, bundle.pack)"></np-mpc-pad>
-                <np-mpc-pad class="no-labels red lit" icon="musical-note-sharp" (click)="navService.goToPractice($event, bundle)"></np-mpc-pad>
-        </np-pad-panel>
-        <hr class="np-hr">
-        <div [innerHtml]="bundle.pack | translateTheory" class="theory-text"></div>
-        <hr class="np-hr with-margin">
+  @for (bundle of lessonBundles; track bundle) {
+    <np-toggle-panel
+      [open]="tab === bundle.pack" [slow]="true"
+      [headline]="bundle.name" [subline]="bundle.sub">
+      <np-pad-panel np-fixed label="...click to toggle">
+        <np-mpc-pad class="no-labels blue lit" icon="ribbon-sharp" (click)="navService.goToLessons($event, bundle.pack)"></np-mpc-pad>
+        <np-mpc-pad class="no-labels red lit" icon="musical-note-sharp" (click)="navService.goToPractice($event, bundle)"></np-mpc-pad>
+      </np-pad-panel>
+      <hr class="np-hr">
+      <div [innerHtml]="bundle.pack | translateTheory" class="theory-text"></div>
+      <hr class="np-hr with-margin">
     </np-toggle-panel>
+  }
 
 </np-panel-rack>

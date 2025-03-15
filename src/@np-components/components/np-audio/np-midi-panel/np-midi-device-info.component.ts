@@ -6,13 +6,13 @@ import { NPMidiService } from '../../../services/np-audio/np-midi.service';
 import { TranslatePipe } from '@ngx-translate/core';
 import { IonButton, IonCol, IonGrid, IonList, IonRow } from '@ionic/angular/standalone';
 import { NPMidiEventPipe } from '../../../pipes/np-midi-event.pipe';
-import { NgIf } from '@angular/common';
+
 
 @Component({
   selector: 'np-midi-device-info',
   templateUrl: './np-midi-device-info.component.html',
   styleUrls: ['./np-midi-device-info.component.scss'],
-  imports: [TranslatePipe, IonList, IonGrid, IonRow, IonCol, NPMidiEventPipe, IonButton, NgIf],
+  imports: [TranslatePipe, IonList, IonGrid, IonRow, IonCol, NPMidiEventPipe, IonButton],
 })
 export class NPMidiDeviceInfoComponent implements OnInit, OnDestroy {
   private readonly midiService = inject(NPMidiService);

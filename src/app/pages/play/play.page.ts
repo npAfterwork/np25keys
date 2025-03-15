@@ -19,13 +19,13 @@ import { PianoRollDisplayComponent } from '../../components/piano-roll-display-p
 import {
   NPPianoRollComponent,
 } from '../../../@np-components/components/np-audio/np-piano-roll/np-piano-roll.component';
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-play-page',
   templateUrl: './play.page.html',
   styleUrls: ['./play.page.scss'],
-  imports: [NPPanelRackComponent, ToolbarComponent, DisplayPanelComponent, PracticePanelComponent, PianoRollCoverPanelComponent, PianoRollDisplayComponent, NPPianoRollComponent, AsyncPipe, TranslatePipe, NgIf],
+  imports: [NPPanelRackComponent, ToolbarComponent, DisplayPanelComponent, PracticePanelComponent, PianoRollCoverPanelComponent, PianoRollDisplayComponent, NPPianoRollComponent, AsyncPipe, TranslatePipe],
 })
 export class PlayPage implements OnInit, OnDestroy {
   private readonly route = inject(ActivatedRoute);

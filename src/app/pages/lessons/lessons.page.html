@@ -1,25 +1,29 @@
 <np-panel-rack>
-    <app-toolbar np-toolbar currentPage="Lessons"
-                 [headline]="CTEXTS.PAGES.lessons | translate"
-                 [subline]="CTEXTS.PAGES.lessons_sub"
-    ></app-toolbar>
+  <app-toolbar np-toolbar currentPage="Lessons"
+    [headline]="CTEXTS.PAGES.lessons | translate"
+    [subline]="CTEXTS.PAGES.lessons_sub"
+  ></app-toolbar>
 
-    <np-toggle-panel *ngFor="let pack of lessonPacks"
-                     headline="{{pack.name}}"
-                     subline="{{pack.sub}}"
-                     [open]="(tab === pack.pack)"
-                     [headerClickOnly]="true">
-        <np-pad-panel np-fixed label="...click to toggle">
-            <np-mpc-pad class="no-labels teal lit" icon="newspaper-sharp" (click)="navService.goToTheory($event,pack.pack)"></np-mpc-pad>
-            <np-mpc-pad class="no-labels red lit" icon="musical-note-sharp" (click)="navService.goToPractice($event, pack)"></np-mpc-pad>
-        </np-pad-panel>
-            <hr class="np-hr">
-        <np-pad-panel class="lessons">
-            <div flex-row-100 flex-start-stretch flex-wrap>
-                <ng-container *ngFor="let lesson of pack.bundle.lessons">
-                    <np-mpc-pad *ngFor="let part of lesson.parts" [label]="lesson | lessonName:part:true" class="multiline-label" (click)="navService.goToPractice($event, pack, lesson)"></np-mpc-pad>
-                </ng-container>
-            </div>
-        </np-pad-panel>
+  @for (pack of lessonPacks; track pack) {
+    <np-toggle-panel
+      headline="{{pack.name}}"
+      subline="{{pack.sub}}"
+      [open]="(tab === pack.pack)"
+      [headerClickOnly]="true">
+      <np-pad-panel np-fixed label="...click to toggle">
+        <np-mpc-pad class="no-labels teal lit" icon="newspaper-sharp" (click)="navService.goToTheory($event,pack.pack)"></np-mpc-pad>
+        <np-mpc-pad class="no-labels red lit" icon="musical-note-sharp" (click)="navService.goToPractice($event, pack)"></np-mpc-pad>
+      </np-pad-panel>
+      <hr class="np-hr">
+      <np-pad-panel class="lessons">
+        <div flex-row-100 flex-start-stretch flex-wrap>
+          @for (lesson of pack.bundle.lessons; track lesson) {
+            @for (part of lesson.parts; track part) {
+              <np-mpc-pad [label]="lesson | lessonName:part:true" class="multiline-label" (click)="navService.goToPractice($event, pack, lesson)"></np-mpc-pad>
+            }
+          }
+        </div>
+      </np-pad-panel>
     </np-toggle-panel>
+  }
 </np-panel-rack>

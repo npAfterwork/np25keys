@@ -5,14 +5,14 @@ import { LessonsService } from '../../services/lessons.service';
 import {
   NPRetroDisplayComponent,
 } from '../../../@np-components/components/np-audio/np-retro-display/np-retro-display.component';
-import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-display-panel',
   templateUrl: './display-panel.component.html',
   styleUrls: ['./display-panel.component.scss'],
-  imports: [NPRetroDisplayComponent, AsyncPipe, NgIf, NgForOf, TranslatePipe],
+  imports: [NPRetroDisplayComponent, AsyncPipe, TranslatePipe],
 })
 export class DisplayPanelComponent implements OnInit {
   readonly lessonsService = inject(LessonsService);
