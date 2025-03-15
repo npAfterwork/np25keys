@@ -1,10 +1,10 @@
-import {Pipe, PipeTransform} from '@angular/core';
-import {TranslateService} from '@ngx-translate/core';
-import {CTHEORY_TEXTS} from '../@consts/texts.theory.consts';
-import {TLessonPack} from '../@types/app.types';
+import { Pipe, PipeTransform } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { CTHEORY_TEXTS } from '../@consts/texts.theory.consts';
+import { TLessonPack } from '../@types/app.types';
+
 @Pipe({
     name: 'translateTheory',
-    standalone: false
 })
 export class TranslateTheoryPipe implements PipeTransform {
 

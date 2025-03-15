@@ -1,11 +1,10 @@
-import {Pipe, PipeTransform} from '@angular/core';
-import {TranslateService} from '@ngx-translate/core';
-import {ILesson, ILessonPart} from '../@types/app.types';
-import {lessonName} from '../utils/utils';
+import { Pipe, PipeTransform } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { ILesson, ILessonPart } from '../@types/app.types';
+import { lessonName } from '../utils/utils';
 
 @Pipe({
     name: 'lessonName',
-    standalone: false
 })
 export class LessonNamePipe implements PipeTransform {
 

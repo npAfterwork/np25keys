@@ -1,10 +1,11 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { NgIf } from '@angular/common';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
-    selector: 'np-pad-panel',
-    templateUrl: './np-pad-panel.component.html',
-    styleUrls: ['./np-pad-panel.component.scss'],
-    standalone: false
+  selector: 'np-pad-panel',
+  templateUrl: './np-pad-panel.component.html',
+  styleUrls: ['./np-pad-panel.component.scss'], imports: [NgIf, TranslatePipe],
 })
 export class NPPadPanelComponent implements OnInit {
 

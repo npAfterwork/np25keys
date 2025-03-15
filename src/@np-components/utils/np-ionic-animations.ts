@@ -1,4 +1,4 @@
-import {AnimationController} from '@ionic/angular';
+import { AnimationController } from '@ionic/angular/standalone';
 
 const animationCtrl = new AnimationController();
 

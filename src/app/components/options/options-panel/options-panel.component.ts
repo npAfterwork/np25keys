@@ -1,17 +1,35 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {TranslateService} from '@ngx-translate/core';
-import {NPPianoRollService} from '../../../../@np-components/services/np-audio/np-piano-roll.service';
-import {CTEXTS} from '../../../@consts/texts.consts';
-import {TOptionsTabs} from '../../../@types/app.types';
-import {DialogsService} from '../../../services/dialogs.service';
-import {NavigateService} from '../../../services/navigate.service';
-import {OptionsService} from '../../../services/options.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { NPPianoRollService } from '../../../../@np-components/services/np-audio/np-piano-roll.service';
+import { CTEXTS } from '../../../@consts/texts.consts';
+import { TOptionsTabs } from '../../../@types/app.types';
+import { DialogsService } from '../../../services/dialogs.service';
+import { NavigateService } from '../../../services/navigate.service';
+import { OptionsService } from '../../../services/options.service';
+import {
+  IonIcon, IonItem, IonLabel, IonList, IonSelect, IonSelectOption, IonTabBar, IonTabButton,
+} from '@ionic/angular/standalone';
+import {
+  NPTogglePanelComponent,
+} from '../../../../@np-components/components/np-audio/np-toggle-panel/np-toggle-panel.component';
+import {
+  NPPadPanelComponent,
+} from '../../../../@np-components/components/np-audio/np-mpc-pad-panel/np-pad-panel.component';
+import { NPMpcPadComponent } from '../../../../@np-components/components/np-audio/np-mpc-pad/np-mpc-pad.component';
+import { UIOptionsPanelComponent } from '../ui-options-panel/ui-options-panel.component';
+import { RollOptionsPanelComponent } from '../roll-options-panel/roll-options-panel.component';
+import { ExtraOptionsPanelComponent } from '../extra-options-panel/extra-options-panel.component';
+import { AudioOptionsPanelComponent } from '../audio-options-panel/audio-options-panel.component';
+import {
+  NPMidiDeviceInfoComponent,
+} from '../../../../@np-components/components/np-audio/np-midi-panel/np-midi-device-info.component';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
-    selector: 'app-options-panel',
-    templateUrl: './options-panel.component.html',
-    styleUrls: ['./options-panel.component.scss'],
-    standalone: false
+  selector: 'app-options-panel',
+  templateUrl: './options-panel.component.html',
+  styleUrls: ['./options-panel.component.scss'],
+  imports: [IonTabBar, IonTabButton, IonIcon, IonLabel, TranslatePipe, NPTogglePanelComponent, NPPadPanelComponent, NPMpcPadComponent, UIOptionsPanelComponent, RollOptionsPanelComponent, ExtraOptionsPanelComponent, AudioOptionsPanelComponent, NPMidiDeviceInfoComponent, IonList, IonItem, IonSelect, IonSelectOption, AsyncPipe],
 })
 export class OptionsPanelComponent implements OnInit {
   CTEXTS = CTEXTS;

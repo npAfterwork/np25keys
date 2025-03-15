@@ -1,11 +1,10 @@
-import {Component, ElementRef, HostBinding, Input, OnInit} from '@angular/core';
-import {CCSS_VAR_LINE_COUNT, CCSS_VAR_LINE_HEIGHT} from '../../../@consts/np-audio.consts';
+import { Component, ElementRef, HostBinding, Input, OnInit } from '@angular/core';
+import { CCSS_VAR_LINE_COUNT, CCSS_VAR_LINE_HEIGHT } from '../../../@consts/np-audio.consts';
 
 @Component({
     selector: 'np-retro-display',
     templateUrl: './np-retro-display.component.html',
     styleUrls: ['./np-retro-display.component.scss'],
-    standalone: false
 })
 export class NPRetroDisplayComponent implements OnInit {
   @Input() multiline = false;

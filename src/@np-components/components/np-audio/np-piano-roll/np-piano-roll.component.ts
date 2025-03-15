@@ -1,13 +1,13 @@
-import {Component, EventEmitter, HostListener, Input, Output} from '@angular/core';
-import {ENOTES} from '../../../@consts/np-note.consts';
-import {INPPianoRollKey} from '../../../@types/np-audio.types';
+import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
+import { ENOTES } from '../../../@consts/np-note.consts';
+import { INPPianoRollKey } from '../../../@types/np-audio.types';
+import { NgForOf, NgIf } from '@angular/common';
 
 
 @Component({
-    selector: 'np-piano-roll',
-    templateUrl: './np-piano-roll.component.html',
-    styleUrls: ['./np-piano-roll.component.scss'],
-    standalone: false
+  selector: 'np-piano-roll',
+  templateUrl: './np-piano-roll.component.html',
+  styleUrls: ['./np-piano-roll.component.scss'], imports: [NgForOf, NgIf],
 })
 export class NPPianoRollComponent {
 

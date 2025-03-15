@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 import { INPPianoRollKey } from '../../../@np-components/@types/np-audio.types';
 import { NPPianoRollService } from '../../../@np-components/services/np-audio/np-piano-roll.service';
@@ -8,12 +8,24 @@ import { CTEXTS } from '../../@consts/texts.consts';
 import { LessonsService } from '../../services/lessons.service';
 import { OptionsService } from '../../services/options.service';
 import { CLessonBundleIndex } from '../../utils/lesson.factory';
+import {
+  NPPanelRackComponent,
+} from '../../../@np-components/components/np-audio/np-panel-rack/np-panel-rack.component';
+import { ToolbarComponent } from '../../components/toolbar/toolbar.component';
+import { DisplayPanelComponent } from '../../components/display-panel/display-panel.component';
+import { PracticePanelComponent } from '../../components/practice-panel/practice-panel.component';
+import { PianoRollCoverPanelComponent } from '../../components/piano-roll-cover-panel/piano-roll-cover-panel.component';
+import { PianoRollDisplayComponent } from '../../components/piano-roll-display-panel/piano-roll-display.component';
+import {
+  NPPianoRollComponent,
+} from '../../../@np-components/components/np-audio/np-piano-roll/np-piano-roll.component';
+import { AsyncPipe, NgIf } from '@angular/common';
 
 @Component({
-    selector: 'app-play-page',
-    templateUrl: './play.page.html',
-    styleUrls: ['./play.page.scss'],
-    standalone: false
+  selector: 'app-play-page',
+  templateUrl: './play.page.html',
+  styleUrls: ['./play.page.scss'],
+  imports: [NPPanelRackComponent, ToolbarComponent, DisplayPanelComponent, PracticePanelComponent, PianoRollCoverPanelComponent, PianoRollDisplayComponent, NPPianoRollComponent, AsyncPipe, TranslatePipe, NgIf],
 })
 export class PlayPage implements OnInit, OnDestroy {
   CTEXTS = CTEXTS;

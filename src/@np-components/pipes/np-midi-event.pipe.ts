@@ -1,11 +1,10 @@
-import {Pipe, PipeTransform} from '@angular/core';
-import {TranslateService} from '@ngx-translate/core';
-import {IMidiEvent} from '../@types/np-audio.types';
-import {noteIdxToName, noteIdxToOctave} from '../utils/np-audio-utils';
+import { Pipe, PipeTransform } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { IMidiEvent } from '../@types/np-audio.types';
+import { noteIdxToName, noteIdxToOctave } from '../utils/np-audio-utils';
 
 @Pipe({
     name: 'npMidiEvent',
-    standalone: false
 })
 export class NPMidiEventPipe implements PipeTransform {
 

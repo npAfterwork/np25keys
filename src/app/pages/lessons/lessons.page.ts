@@ -6,12 +6,26 @@ import { ILessonPack, TLessonPack } from '../../@types/app.types';
 import { NavigateService } from '../../services/navigate.service';
 import { OptionsService } from '../../services/options.service';
 import { CLessonBundleIndex } from '../../utils/lesson.factory';
+import {
+  NPPanelRackComponent,
+} from '../../../@np-components/components/np-audio/np-panel-rack/np-panel-rack.component';
+import { ToolbarComponent } from '../../components/toolbar/toolbar.component';
+import { TranslatePipe } from '@ngx-translate/core';
+import {
+  NPTogglePanelComponent,
+} from '../../../@np-components/components/np-audio/np-toggle-panel/np-toggle-panel.component';
+import {
+  NPPadPanelComponent,
+} from '../../../@np-components/components/np-audio/np-mpc-pad-panel/np-pad-panel.component';
+import { NPMpcPadComponent } from '../../../@np-components/components/np-audio/np-mpc-pad/np-mpc-pad.component';
+import { NgForOf } from '@angular/common';
+import { LessonNamePipe } from '../../pipes/lesson-name.pipe';
 
 @Component({
-    selector: 'app-lessons-page',
-    templateUrl: './lessons.page.html',
-    styleUrls: ['./lessons.page.scss'],
-    standalone: false
+  selector: 'app-lessons-page',
+  templateUrl: './lessons.page.html',
+  styleUrls: ['./lessons.page.scss'],
+  imports: [NPPanelRackComponent, ToolbarComponent, TranslatePipe, NPTogglePanelComponent, NPPadPanelComponent, NPMpcPadComponent, NgForOf, LessonNamePipe],
 })
 export class LessonsPage implements OnInit {
   CTEXTS = CTEXTS;

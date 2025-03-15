@@ -92,14 +92,14 @@
       "pianoroll_sub":   "You can turn off the piano roll but then you dont see it anymore",
       "fullscreen":      "Fullsrceen Frame",
       "fullscreen_sub":  "If you are running on a very small device you can turn on the compact frame mode to gain more space",
-      "scanlines":       "Scanlines on the displays",
-      "scanlines_sub":   "I have a feeling the cost a lot of rendering power, so if you have problems turn them off",
+      "scanlines":       "Retro Scanlines on the displays",
+      "scanlines_sub":   "I have a feeling they cost a lot of rendering power, so if you have problems turn them off",
       "maindisplay":     "The Main Display Panel",
-      "maindisplay_sub": "You can turn off the main display but you will loose most of the displayed informations",
+      "maindisplay_sub": "You can turn off the main display but you will loose most of the displayed information",
       "mpcpadssize":     "Not yet",
       "mpcpadssize_sub": "Not yet",
       "playing":        "Show pressing animation",
-      "playing_sub":    "Visuallze that the key is pressed when a midi event is received"
+      "playing_sub":    "Visualize that the key is pressed when a midi event is received"
 
     },
     "UI":        {

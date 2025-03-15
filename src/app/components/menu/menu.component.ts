@@ -1,34 +1,23 @@
-import {Component, OnInit} from '@angular/core';
-import {MenuController} from '@ionic/angular';
-import {CROUTES} from '../../@consts/app.consts';
-import {CTEXTS} from '../../@consts/texts.consts';
-import {NavigateService} from '../../services/navigate.service';
+import { Component, inject } from '@angular/core';
+import { IonButton, IonContent, IonIcon, IonItem, IonLabel, IonMenu, IonMenuToggle } from '@ionic/angular/standalone';
+import { CROUTES } from '../../@consts/app.consts';
+import { CTEXTS } from '../../@consts/texts.consts';
+import { NavigateService } from '../../services/navigate.service';
+import {
+  NPPanelRackComponent,
+} from '../../../@np-components/components/np-audio/np-panel-rack/np-panel-rack.component';
+import { TranslatePipe } from '@ngx-translate/core';
+import { OptionsPanelComponent } from '../options/options-panel/options-panel.component';
+import { NgForOf } from '@angular/common';
 
 @Component({
-    selector: 'app-menu',
-    templateUrl: './menu.component.html',
-    styleUrls: ['./menu.component.scss'],
-    standalone: false
+  selector: 'app-menu',
+  templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.scss'],
+  imports: [IonMenu, IonContent, IonItem, IonMenuToggle, IonButton, IonIcon, IonLabel, TranslatePipe, OptionsPanelComponent, NPPanelRackComponent, NgForOf],
 })
-export class MenuComponent implements OnInit {
-  CTEXTS = CTEXTS;
-  ROUTES = Object.values(CROUTES);
-  showOptions = false;
-  constructor(
-    public readonly menuController: MenuController,
-    public readonly navService: NavigateService,
-  ) { }
-
-  ngOnInit() {
-    this.menuController.get('options').then(menu => {
-      menu.addEventListener('ionWillOpen', (ev) => {
-        this.showOptions = true;
-      });
-      menu.addEventListener('ionDidClose', (ev) => {
-        this.showOptions = false;
-      });
-    })
-
-  }
-
+export class MenuComponent {
+  protected readonly navService = inject(NavigateService);
+  protected readonly CTEXTS = CTEXTS;
+  protected readonly ROUTES = Object.values(CROUTES);
 }

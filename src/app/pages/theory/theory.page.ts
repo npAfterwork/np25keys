@@ -6,13 +6,26 @@ import { ILessonPack, TLessonPack } from '../../@types/app.types';
 import { NavigateService } from '../../services/navigate.service';
 import { OptionsService } from '../../services/options.service';
 import { CLessonBundleIndex } from '../../utils/lesson.factory';
+import {
+  NPPanelRackComponent,
+} from '../../../@np-components/components/np-audio/np-panel-rack/np-panel-rack.component';
+import { ToolbarComponent } from '../../components/toolbar/toolbar.component';
+import {
+  NPTogglePanelComponent,
+} from '../../../@np-components/components/np-audio/np-toggle-panel/np-toggle-panel.component';
+import {
+  NPPadPanelComponent,
+} from '../../../@np-components/components/np-audio/np-mpc-pad-panel/np-pad-panel.component';
+import { NPMpcPadComponent } from '../../../@np-components/components/np-audio/np-mpc-pad/np-mpc-pad.component';
+import { NgForOf } from '@angular/common';
+import { TranslateTheoryPipe } from '../../pipes/translate-theory.pipe';
 
 
 @Component({
-    selector: 'app-theory-page',
-    templateUrl: './theory.page.html',
-    styleUrls: ['./theory.page.scss'],
-    standalone: false
+  selector: 'app-theory-page',
+  templateUrl: './theory.page.html',
+  styleUrls: ['./theory.page.scss'],
+  imports: [NPPanelRackComponent, ToolbarComponent, NPTogglePanelComponent, NPPadPanelComponent, NPMpcPadComponent, NgForOf, TranslateTheoryPipe],
 })
 export class TheoryPage implements OnInit {
   CTEXTS = CTEXTS;

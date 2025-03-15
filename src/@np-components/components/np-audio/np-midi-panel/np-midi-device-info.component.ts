@@ -1,16 +1,20 @@
-import {Component, NgZone, OnDestroy, OnInit} from '@angular/core';
-import {Subscription} from 'rxjs';
-import {CNPAUDIO_TEXTS} from '../../../@consts/np-audio.consts';
-import {IMidiEvent} from '../../../@types/np-audio.types';
-import {NPMidiService} from '../../../services/np-audio/np-midi.service';
+import { Component, NgZone, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { CNPAUDIO_TEXTS } from '../../../@consts/np-audio.consts';
+import { IMidiEvent } from '../../../@types/np-audio.types';
+import { NPMidiService } from '../../../services/np-audio/np-midi.service';
+import { TranslatePipe } from '@ngx-translate/core';
+import { IonButton, IonCol, IonGrid, IonList, IonRow } from '@ionic/angular/standalone';
+import { NPMidiEventPipe } from '../../../pipes/np-midi-event.pipe';
+import { NgIf } from '@angular/common';
 
 @Component({
-    selector: 'np-midi-device-info',
-    templateUrl: './np-midi-device-info.component.html',
-    styleUrls: ['./np-midi-device-info.component.scss'],
-    standalone: false
+  selector: 'np-midi-device-info',
+  templateUrl: './np-midi-device-info.component.html',
+  styleUrls: ['./np-midi-device-info.component.scss'],
+  imports: [TranslatePipe, IonList, IonGrid, IonRow, IonCol, NPMidiEventPipe, IonButton, NgIf],
 })
-export class NPMidiDeviceInfoComponent implements OnInit, OnDestroy{
+export class NPMidiDeviceInfoComponent implements OnInit, OnDestroy {
   readonly CTEXTS = CNPAUDIO_TEXTS;
   currentDevice: WebMidi.MIDIInput;
   lastEvent: IMidiEvent;
@@ -18,10 +22,7 @@ export class NPMidiDeviceInfoComponent implements OnInit, OnDestroy{
   private conSub: Subscription;
   private evSub: Subscription;
 
-  constructor(
-    private readonly midiService: NPMidiService,
-    private readonly ngZone: NgZone
-  ) {
+  constructor(private readonly midiService: NPMidiService, private readonly ngZone: NgZone) {
   }
 
   ngOnInit() {
@@ -36,6 +37,6 @@ export class NPMidiDeviceInfoComponent implements OnInit, OnDestroy{
   }
 
   async connect() {
-    await this.midiService.connect()
+    await this.midiService.connect();
   }
 }

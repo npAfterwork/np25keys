@@ -1,7 +1,7 @@
-import {Injectable} from '@angular/core';
-import {AlertController} from '@ionic/angular';
-import {TranslateService} from '@ngx-translate/core';
-import {TTextID} from '../../@np-components/@types/np.types';
+import { Injectable } from '@angular/core';
+import { AlertController } from '@ionic/angular/standalone';
+import { TranslateService } from '@ngx-translate/core';
+import { TTextID } from '../../@np-components/@types/np.types';
 
 @Injectable({
               providedIn: 'root'

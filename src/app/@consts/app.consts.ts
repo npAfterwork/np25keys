@@ -1,6 +1,8 @@
-import {INPInstrument} from '../../@np-components/@types/np-audio.types';
-import {TLessonPack} from '../@types/app.types';
-import {CTEXTS} from './texts.consts';
+import { INPInstrument } from '../../@np-components/@types/np-audio.types';
+import { TLessonPack } from '../@types/app.types';
+import { CTEXTS } from './texts.consts';
+import { Routes } from '@angular/router';
+import { AudioContextGuard } from '../guards/audio-context.guard';
 
 export const CLS_KEY_OPTIONS = 'np-25keys-options';
 export const CLS_KEY_LESSONS = 'np-25keys-lessons';
@@ -34,3 +36,28 @@ export const CROUTES = {
     ROUTES: (topic?: TLessonPack) => [CFRAGMENTS.ROOT, CFRAGMENTS.LESSONS, topic || 'none'],
   },
 };
+
+export const APP_ROUTES: Routes = [
+  {
+    path:         CROUTES.HOME.URL,
+    canActivate:  [],
+    loadComponent: () => import('src/app/pages/home/home.page').then(m => m.HomePage)
+  },
+  {
+    path:         CROUTES.THEORY.URL,
+    canActivate:  [],
+    loadComponent: () => import('src/app/pages/theory/theory.page').then(m => m.TheoryPage)
+  },
+  {
+    path:         CROUTES.LESSONS.URL,
+    canActivate:  [],
+    loadComponent: () => import('src/app/pages/lessons/lessons.page').then(m => m.LessonsPage)
+  },
+  {
+    path:         CROUTES.PLAY.URL,
+    canActivate:  [AudioContextGuard],
+    loadComponent: () => import('src/app/pages/play/play.page').then(m => m.PlayPage)
+  },
+  {path: '', redirectTo: CROUTES.HOME.URL, pathMatch: 'full'},
+  {path: '**', redirectTo: CROUTES.HOME.URL},
+];

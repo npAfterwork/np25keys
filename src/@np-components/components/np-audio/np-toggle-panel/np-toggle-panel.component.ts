@@ -2,13 +2,14 @@ import { Component, HostBinding, HostListener, Input, OnChanges, OnInit, SimpleC
 import { TTextID } from '../../../@types/np.types';
 import { CAnimations } from '../../../utils/np-animations';
 import { preventEvent } from '../../../utils/np-utils';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
-    selector: 'np-toggle-panel',
-    templateUrl: './np-toggle-panel.component.html',
-    styleUrls: ['./np-toggle-panel.component.scss'],
-    animations: [CAnimations.collapse.meta],
-    standalone: false
+  selector: 'np-toggle-panel',
+  templateUrl: './np-toggle-panel.component.html',
+  styleUrls: ['./np-toggle-panel.component.scss'],
+  animations: [CAnimations.collapse.meta],
+  imports: [TranslatePipe],
 })
 export class NPTogglePanelComponent implements OnInit, OnChanges {
 
