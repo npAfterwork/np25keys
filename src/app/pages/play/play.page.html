@@ -4,19 +4,19 @@
       [currentPage]="lessonService.isFreeplay ? 'Freeplay': 'Practice'"
       [headline]="(lessonService.isFreeplay ? CTEXTS.PAGES.freeplay : CTEXTS.PAGES.practice) | translate"
       [subline]="(lessonService.isFreeplay ? CTEXTS.PAGES.freeplay_sub : CTEXTS.PAGES.practice_sub) | translate"
-    ></app-toolbar>
+     />
   }
   @if ((options.get$.infodisplays | async) || (options.get$.maindisplay | async)) {
-    <app-display-panel></app-display-panel>
+    <app-display-panel />
   }
   @if ((options.get$.mpcpads|async) && !lessonService.isFreeplay) {
-    <app-practice-panel></app-practice-panel>
+    <app-practice-panel />
   }
   @if (npPianoRoll.cover$.visible | async) {
-    <app-piano-roll-cover-panel [keys]="keys"></app-piano-roll-cover-panel>
+    <app-piano-roll-cover-panel [keys]="keys" />
   }
   @if (npPianoRoll.display$.visible | async) {
-    <np-piano-roll-display [keys]="keys"></np-piano-roll-display>
+    <np-piano-roll-display [keys]="keys" />
   }
   @if (npPianoRoll.pianoroll$.visible | async) {
     <np-piano-roll [keys]="keys"
@@ -27,6 +27,6 @@
       [pressedByEvent]="npPianoRoll.pianoroll$.playing | async"
       (npPressNote)="npPianoRoll.pressNote($event)"
       (npReleaseNote)="npPianoRoll.releaseNote($event)"
-    ></np-piano-roll>
+     />
   }
 </np-panel-rack>

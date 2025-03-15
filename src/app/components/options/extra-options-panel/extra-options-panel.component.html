@@ -13,22 +13,22 @@
 <!--    </ion-item>-->
     <np-options-toggle [label]="CTEXTS.OPTIONS.EXTRA.maindisplay" [desc]="CTEXTS.OPTIONS.EXTRA.maindisplay_sub"
                        [ngModel]="options.get$.maindisplay | async" (ngModelChange)="options.save.maindisplay($event)"
-    ></np-options-toggle>
+     />
 
     <np-options-toggle [label]="CTEXTS.OPTIONS.EXTRA.pianoroll" [desc]="CTEXTS.OPTIONS.EXTRA.pianoroll_sub"
                        [ngModel]="npPianoRoll.pianoroll$.visible | async"
                        (ngModelChange)="npPianoRoll.pianoroll.visible($event)"
-    ></np-options-toggle>
+     />
 
     <np-options-toggle [label]="CTEXTS.OPTIONS.EXTRA.playing" [desc]="CTEXTS.OPTIONS.EXTRA.playing_sub"
                        [ngModel]="npPianoRoll.pianoroll$.playing | async"
                        (ngModelChange)="npPianoRoll.pianoroll.playing($event)"
-    ></np-options-toggle>
+     />
 
     <np-options-toggle [label]="CTEXTS.OPTIONS.EXTRA.scanlines" [desc]="CTEXTS.OPTIONS.EXTRA.scanlines_sub"
                        [ngModel]="options.get$.scanlines | async" (ngModelChange)="options.save.scanlines($event)"
-    ></np-options-toggle>
+     />
     <np-options-toggle [label]="CTEXTS.OPTIONS.EXTRA.fullscreen" [desc]="CTEXTS.OPTIONS.EXTRA.fullscreen_sub"
                        [ngModel]="options.get$.fullscreen" (ngModelChange)="options.save.fullscreen($event)"
-    ></np-options-toggle>
+     />
 </ion-list>

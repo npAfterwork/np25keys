@@ -2,7 +2,7 @@
   <app-toolbar np-toolbar currentPage="Lessons"
     [headline]="CTEXTS.PAGES.lessons | translate"
     [subline]="CTEXTS.PAGES.lessons_sub"
-  ></app-toolbar>
+   />
 
   @for (pack of lessonPacks; track pack) {
     <np-toggle-panel
@@ -11,8 +11,8 @@
       [open]="(tab === pack.pack)"
       [headerClickOnly]="true">
       <np-pad-panel np-fixed label="...click to toggle">
-        <np-mpc-pad class="no-labels teal lit" icon="newspaper-sharp" (click)="navService.goToTheory($event,pack.pack)"></np-mpc-pad>
-        <np-mpc-pad class="no-labels red lit" icon="musical-note-sharp" (click)="navService.goToPractice($event, pack)"></np-mpc-pad>
+        <np-mpc-pad class="no-labels teal lit" icon="newspaper-sharp" (click)="navService.goToTheory($event,pack.pack)" />
+        <np-mpc-pad class="no-labels red lit" icon="musical-note-sharp" (click)="navService.goToPractice($event, pack)" />
       </np-pad-panel>
       <hr class="np-hr">
       <np-pad-panel class="lessons">

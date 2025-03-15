@@ -4,7 +4,7 @@
       <ion-item class="np-brand">
         <ion-menu-toggle class="close-btn">
           <ion-button class="np-close-btn" fill="clear">
-            <ion-icon name="close-sharp"></ion-icon>
+            <ion-icon name="close-sharp" />
           </ion-button>
         </ion-menu-toggle>
         <ion-label>np25Keys
@@ -15,13 +15,13 @@
       @for (item of ROUTES; track item) {
         <ion-menu-toggle>
           <ion-item button (click)="navService.goToRoute(item.ROUTE, null)">
-            <ion-icon slot="start" [name]="item.ICON"></ion-icon>
+            <ion-icon slot="start" [name]="item.ICON" />
             {{item.LABEL | translate}}
           </ion-item>
         </ion-menu-toggle>
       }
       <ion-item button (click)="navService.goToSettings('common', null)">
-        <ion-icon slot="start" name="options-sharp"></ion-icon>
+        <ion-icon slot="start" name="options-sharp" />
         {{CTEXTS.ROUTES.settings | translate}}
       </ion-item>
     </np-panel-rack>
@@ -30,7 +30,7 @@
 <ion-menu side="end" menuId="options" contentId="main">
   <ion-content>
     <np-panel-rack class="np-options-rack">
-      <app-options-panel></app-options-panel>
+      <app-options-panel />
     </np-panel-rack>
   </ion-content>
 </ion-menu>

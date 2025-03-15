@@ -1,7 +1,7 @@
 <ion-list class="np-audio-device-panel-inlay">
     <np-options-toggle [label]="CTEXTS.OPTIONS.AUDIO.mute" [desc]="CTEXTS.OPTIONS.AUDIO.mute_sub"
                        [ngModel]="audio.options$.mute | async" (ngModelChange)="audio.save.mute($event)"
-    ></np-options-toggle>
+     />
     <ion-item [disabled]="audio.options$.mute | async">
         <ion-label>{{CTEXTS.OPTIONS.AUDIO.instrument | translate}}</ion-label>
         <ion-select [value]="audio.options$.instrument | async" (ionChange)="audio.save.instrument($event.detail.value)">
@@ -17,8 +17,8 @@
     <ion-item [disabled]="audio.options$.mute | async">
         <ion-range min="0" max="100" step="1" pin="true"
                    [ngModel]="audio.options$.volume | async" (ngModelChange)="audio.save.volume($event)">
-            <ion-icon slot="start" name="volume-off-sharp"></ion-icon>
-            <ion-icon slot="end" name="volume-high-sharp"></ion-icon>
+            <ion-icon slot="start" name="volume-off-sharp" />
+            <ion-icon slot="end" name="volume-high-sharp" />
         </ion-range>
     </ion-item>
 
@@ -30,8 +30,8 @@
     <ion-item [disabled]="audio.options$.mute | async">
         <ion-range min="1" max="200" step="1" pin="true"
                    [ngModel]="audio.options$.metroSpeed | async" (ngModelChange)="audio.save.metroSpeed($event)">
-            <ion-icon slot="start" name="paw-sharp"></ion-icon>
-            <ion-icon slot="end" name="skull-sharp"></ion-icon>
+            <ion-icon slot="start" name="paw-sharp" />
+            <ion-icon slot="end" name="skull-sharp" />
         </ion-range>
     </ion-item>
     <ion-list-header>
@@ -42,8 +42,8 @@
     <ion-item [disabled]="audio.options$.mute | async">
         <ion-range min="0" max="100" step="1" pin="true"
                    [ngModel]="audio.options$.metroVolume | async" (ngModelChange)="audio.save.metroVolume($event)">
-            <ion-icon slot="start" name="volume-off-sharp"></ion-icon>
-            <ion-icon slot="end" name="volume-high-sharp"></ion-icon>
+            <ion-icon slot="start" name="volume-off-sharp" />
+            <ion-icon slot="end" name="volume-high-sharp" />
         </ion-range>
     </ion-item>
 
