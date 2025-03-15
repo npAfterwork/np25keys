@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CTEXTS } from 'src/app/@consts/texts.consts';
 import { NavigateService } from '../../services/navigate.service';
 import { OptionsService } from '../../services/options.service';
@@ -15,12 +15,10 @@ import { TranslatePipe } from '@ngx-translate/core';
   styleUrls: ['home.page.scss'], imports: [NPPanelRackComponent, ToolbarComponent, NPMpcPadComponent, TranslatePipe],
 })
 export class HomePage {
-  CTEXTS = CTEXTS;
+  readonly navService = inject(NavigateService);
+  readonly optionsService = inject(OptionsService);
 
-  constructor(
-    public readonly navService: NavigateService,
-    public readonly optionsService: OptionsService,
-  ) { }
+  CTEXTS = CTEXTS;
 
 
 }

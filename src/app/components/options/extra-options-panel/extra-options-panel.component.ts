@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { NPPianoRollService } from '../../../../@np-components/services/np-audio/np-piano-roll.service';
 import { CTEXTS } from '../../../@consts/texts.consts';
 import { OptionsService } from '../../../services/options.service';
@@ -15,15 +15,10 @@ import { AsyncPipe } from '@angular/common';
   styleUrls: ['./extra-options-panel.component.scss'],
   imports: [IonList, NPOptionsToggleComponent, FormsModule, AsyncPipe],
 })
-export class ExtraOptionsPanelComponent implements OnInit {
+export class ExtraOptionsPanelComponent {
+  readonly npPianoRoll = inject(NPPianoRollService);
+  readonly options = inject(OptionsService);
+
   CTEXTS = CTEXTS;
-
-  constructor(
-    public readonly npPianoRoll: NPPianoRollService,
-    public readonly options: OptionsService,
-  ) { }
-
-  ngOnInit() {
-  }
 
 }

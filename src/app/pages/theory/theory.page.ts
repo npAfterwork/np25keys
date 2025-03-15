@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CTEXTS } from '../../@consts/texts.consts';
@@ -28,16 +28,14 @@ import { TranslateTheoryPipe } from '../../pipes/translate-theory.pipe';
   imports: [NPPanelRackComponent, ToolbarComponent, NPTogglePanelComponent, NPPadPanelComponent, NPMpcPadComponent, NgForOf, TranslateTheoryPipe],
 })
 export class TheoryPage implements OnInit {
+  readonly options = inject(OptionsService);
+  readonly navService = inject(NavigateService);
+  private readonly route = inject(ActivatedRoute);
+
   CTEXTS = CTEXTS;
   tab: TLessonPack = 'Notes';
   lessonBundles: ILessonPack[] = [];
   private routeSub: Subscription;
-
-  constructor(
-    public readonly options: OptionsService,
-    public readonly navService: NavigateService,
-    private readonly route: ActivatedRoute,
-  ) { }
 
   ngOnInit() {
     this.lessonBundles = Object.values(CLessonBundleIndex).filter(bundle => bundle.type !== 'freeplay');

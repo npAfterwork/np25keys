@@ -1,4 +1,4 @@
-import { Component, NgZone, OnDestroy, OnInit } from '@angular/core';
+import { Component, NgZone, OnDestroy, OnInit, inject } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CNPAUDIO_TEXTS } from '../../../@consts/np-audio.consts';
 import { IMidiEvent } from '../../../@types/np-audio.types';
@@ -15,15 +15,15 @@ import { NgIf } from '@angular/common';
   imports: [TranslatePipe, IonList, IonGrid, IonRow, IonCol, NPMidiEventPipe, IonButton, NgIf],
 })
 export class NPMidiDeviceInfoComponent implements OnInit, OnDestroy {
+  private readonly midiService = inject(NPMidiService);
+  private readonly ngZone = inject(NgZone);
+
   readonly CTEXTS = CNPAUDIO_TEXTS;
   currentDevice: WebMidi.MIDIInput;
   lastEvent: IMidiEvent;
 
   private conSub: Subscription;
   private evSub: Subscription;
-
-  constructor(private readonly midiService: NPMidiService, private readonly ngZone: NgZone) {
-  }
 
   ngOnInit() {
     this.currentDevice = this.midiService.currentDevice;

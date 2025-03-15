@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CTEXTS } from '../../@consts/texts.consts';
 import { OptionsService } from '../../services/options.service';
 import { LessonsService } from '../../services/lessons.service';
@@ -15,11 +15,10 @@ import { TranslatePipe } from '@ngx-translate/core';
   imports: [NPRetroDisplayComponent, AsyncPipe, NgIf, NgForOf, TranslatePipe],
 })
 export class DisplayPanelComponent implements OnInit {
+  readonly lessonsService = inject(LessonsService);
+  readonly optionsService = inject(OptionsService);
+
   CTEXTS = CTEXTS;
-  constructor(
-    public readonly lessonsService: LessonsService,
-    public readonly optionsService: OptionsService,
-  ) { }
 
   ngOnInit() {}
 

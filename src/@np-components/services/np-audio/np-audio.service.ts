@@ -1,4 +1,4 @@
-import { Injectable, OnDestroy } from '@angular/core';
+import { Injectable, OnDestroy, inject } from '@angular/core';
 import { Howl } from 'howler';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { CLS_KEY_OPTIONS_AUDIO } from '../../@consts/np-audio.consts';
@@ -12,6 +12,8 @@ import { NPMidiService } from './np-midi.service';
               providedIn: 'root'
             })
 export class NPAudioService implements OnDestroy {
+  private readonly midiService = inject(NPMidiService);
+
 
   private sounds: { [key: number]: Howl } = {};
 
@@ -51,11 +53,6 @@ export class NPAudioService implements OnDestroy {
 
   public readonly options$ = this.dataStore.get$;
   public readonly save = this.dataStore.save;
-
-  constructor(
-    private readonly midiService: NPMidiService
-  ) {
-  }
 
   addInstrument(instrument: INPInstrument) {
     this.instruments[instrument.name] = instrument;

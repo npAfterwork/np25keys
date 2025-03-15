@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CTEXTS } from '../../@consts/texts.consts';
@@ -28,17 +28,15 @@ import { LessonNamePipe } from '../../pipes/lesson-name.pipe';
   imports: [NPPanelRackComponent, ToolbarComponent, TranslatePipe, NPTogglePanelComponent, NPPadPanelComponent, NPMpcPadComponent, NgForOf, LessonNamePipe],
 })
 export class LessonsPage implements OnInit {
+  readonly optionsService = inject(OptionsService);
+  readonly navService = inject(NavigateService);
+  private readonly route = inject(ActivatedRoute);
+
   CTEXTS = CTEXTS;
   lessonPacks: ILessonPack[] = [];
 
   tab: TLessonPack | 'none' = 'Notes';
   private routeSub: Subscription;
-
-  constructor(
-    public readonly optionsService: OptionsService,
-    public readonly navService: NavigateService,
-    private readonly route: ActivatedRoute,
-  ) { }
 
   ngOnInit() {
     this.lessonPacks = Object.values(CLessonBundleIndex).filter(bundle => bundle.type !== 'freeplay');

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CTEXTS } from '../../@consts/texts.consts';
 import { LessonsService } from '../../services/lessons.service';
 import { NavigateService } from '../../services/navigate.service';
@@ -14,11 +14,10 @@ import { AsyncPipe } from '@angular/common';
   styleUrls: ['./practice-panel.component.scss'], imports: [NPPadPanelComponent, NPMpcPadComponent, AsyncPipe],
 })
 export class PracticePanelComponent implements OnInit {
+  readonly lessonService = inject(LessonsService);
+  readonly navService = inject(NavigateService);
+
   CTEXTS = CTEXTS;
-  constructor(
-    public readonly lessonService: LessonsService,
-    public readonly navService: NavigateService,
-  ) { }
 
   ngOnInit() {}
 

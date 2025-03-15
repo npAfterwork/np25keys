@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 
 import { IonApp, IonContent, IonRouterOutlet, MenuController, Platform } from '@ionic/angular/standalone';
 import { TranslateService } from '@ngx-translate/core';
@@ -13,12 +13,12 @@ import { MenuComponent } from './components/menu/menu.component';
   imports: [IonApp, MenuComponent, IonContent, IonRouterOutlet, AsyncPipe],
 })
 export class AppComponent {
-  constructor(
-    private readonly platform: Platform,
-    private readonly translate: TranslateService,
-    private readonly menuController: MenuController,
-    public readonly options: OptionsService,
-  ) {
+  private readonly platform = inject(Platform);
+  private readonly translate = inject(TranslateService);
+  private readonly menuController = inject(MenuController);
+  readonly options = inject(OptionsService);
+
+  constructor() {
     addIcons(APP_ICONS)
     this.initializeApp();
   }

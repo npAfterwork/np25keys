@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
@@ -28,19 +28,16 @@ import { AsyncPipe, NgIf } from '@angular/common';
   imports: [NPPanelRackComponent, ToolbarComponent, DisplayPanelComponent, PracticePanelComponent, PianoRollCoverPanelComponent, PianoRollDisplayComponent, NPPianoRollComponent, AsyncPipe, TranslatePipe, NgIf],
 })
 export class PlayPage implements OnInit, OnDestroy {
+  private readonly route = inject(ActivatedRoute);
+  readonly lessonService = inject(LessonsService);
+  readonly npPianoRoll = inject(NPPianoRollService);
+  readonly options = inject(OptionsService);
+  protected readonly translate = inject(TranslateService);
+
   CTEXTS = CTEXTS;
   private routeSub: Subscription;
   keys: INPPianoRollKey[] = [];
   private keySub: Subscription;
-
-
-  constructor(
-    private readonly route: ActivatedRoute,
-    public readonly lessonService: LessonsService,
-    public readonly npPianoRoll: NPPianoRollService,
-    public readonly options: OptionsService,
-    protected readonly translate: TranslateService,
-  ) { }
 
   ngOnInit() {
     this.routeSub = this.route.params.subscribe(params => {

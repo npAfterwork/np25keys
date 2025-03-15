@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, inject } from '@angular/core';
 import { TTextID } from '../../../@np-components/@types/np.types';
 import { CTEXTS } from '../../@consts/texts.consts';
 import { TAppPages } from '../../@types/app.types';
@@ -14,16 +14,14 @@ import { NPMpcPadComponent } from '../../../@np-components/components/np-audio/n
   styleUrls: ['./toolbar.component.scss'], imports: [NPTogglePanelComponent, NPMpcPadComponent],
 })
 export class ToolbarComponent implements OnInit, OnDestroy {
+  readonly navService = inject(NavigateService);
+
   CTEXTS = CTEXTS;
 
   @Input() headline: TTextID;
   @Input() subline: TTextID;
   @Input() open: boolean = true;
   @Input() currentPage: TAppPages = 'Home';
-
-  constructor(
-    public readonly navService: NavigateService,
-  ) { }
 
   ngOnInit() {
   }

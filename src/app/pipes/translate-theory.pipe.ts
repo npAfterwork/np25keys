@@ -1,4 +1,4 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform, inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { CTHEORY_TEXTS } from '../@consts/texts.theory.consts';
 import { TLessonPack } from '../@types/app.types';
@@ -7,10 +7,8 @@ import { TLessonPack } from '../@types/app.types';
     name: 'translateTheory',
 })
 export class TranslateTheoryPipe implements PipeTransform {
+  private readonly translate = inject(TranslateService);
 
-  constructor(
-    private readonly translate: TranslateService
-  ) {}
 
   /**
    * Gets the text from the '../@consts/texts.theory.consts'

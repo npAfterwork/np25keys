@@ -1,4 +1,4 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform, inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { IMidiEvent } from '../@types/np-audio.types';
 import { noteIdxToName, noteIdxToOctave } from '../utils/np-audio-utils';
@@ -7,10 +7,8 @@ import { noteIdxToName, noteIdxToOctave } from '../utils/np-audio-utils';
     name: 'npMidiEvent',
 })
 export class NPMidiEventPipe implements PipeTransform {
+  private readonly translate = inject(TranslateService);
 
-  constructor(
-    private readonly translate: TranslateService
-  ) {}
 
   transform(value: IMidiEvent): any {
     if (!value) {

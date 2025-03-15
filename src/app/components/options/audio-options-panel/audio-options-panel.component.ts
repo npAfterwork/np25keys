@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { NPAudioService } from '../../../../@np-components/services/np-audio/np-audio.service';
 import { CTEXTS } from '../../../@consts/texts.consts';
 import {
@@ -17,13 +17,9 @@ import { TranslatePipe } from '@ngx-translate/core';
   styleUrls: ['./audio-options-panel.component.scss'],
   imports: [IonList, NPOptionsToggleComponent, FormsModule, AsyncPipe, TranslatePipe, IonItem, IonLabel, IonSelect, IonSelectOption, IonListHeader, IonRange, IonIcon],
 })
-export class AudioOptionsPanelComponent implements OnInit {
+export class AudioOptionsPanelComponent {
+  readonly audio = inject(NPAudioService);
+
   CTEXTS = CTEXTS;
-
-  constructor(
-    public readonly audio: NPAudioService,
-  ) { }
-
-  ngOnInit() {}
 
 }

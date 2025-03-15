@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { MenuController, NavController } from '@ionic/angular/standalone';
 import { preventEvent } from '../../@np-components/utils/np-utils';
 import { CROUTES } from '../@consts/app.consts';
@@ -9,11 +9,12 @@ import { LessonsService } from './lessons.service';
   providedIn: 'root',
 })
 export class NavigateService {
+  private readonly navController = inject(NavController);
+  private readonly menuController = inject(MenuController);
+  private readonly lessonService = inject(LessonsService);
+
 
   private animated = true;
-
-  constructor(private readonly navController: NavController, private readonly menuController: MenuController, private readonly lessonService: LessonsService) {
-  }
 
   async goToRoute(route: string[], $event: MouseEvent) {
     preventEvent($event);

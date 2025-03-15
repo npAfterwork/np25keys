@@ -1,5 +1,5 @@
 import {DOCUMENT} from '@angular/common';
-import {Inject, Injectable, NgZone, OnDestroy} from '@angular/core';
+import { Injectable, NgZone, OnDestroy, inject } from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {BehaviorSubject, Observable, Subscription} from 'rxjs';
 import {CCSS_VAR_WHITE_KEY_COUNT, CLS_KEY_OPTIONS_AUDIO_COVER, CLS_KEY_OPTIONS_AUDIO_DISPLAY, CLS_KEY_OPTIONS_AUDIO_PIANO_ROLL} from '../../@consts/np-audio.consts';
@@ -15,6 +15,11 @@ import {NPMidiService} from './np-midi.service';
               deps:       [DOCUMENT]
             })
 export class NPPianoRollService implements OnDestroy {
+  protected document = inject<Document>(DOCUMENT);
+  protected readonly translate = inject(TranslateService);
+  protected readonly midiService = inject(NPMidiService);
+  private readonly ngZone = inject(NgZone);
+
 
   private evSub: Subscription;
   private langSub: Subscription;
@@ -81,12 +86,7 @@ export class NPPianoRollService implements OnDestroy {
   };
 
 
-  constructor(
-    @Inject(DOCUMENT) protected document: Document,
-    protected readonly translate: TranslateService,
-    protected readonly midiService: NPMidiService,
-    private readonly ngZone: NgZone
-  ) {
+  constructor() {
     this.evSub = this.midiService.onMessage$.subscribe((ev => this.onMidiMessage(ev)));
     this.langSub = this.translate.onLangChange.subscribe(ev => this.updateKeys());
   }

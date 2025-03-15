@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { NPPianoRollService } from '../../../../@np-components/services/np-audio/np-piano-roll.service';
 import { CTEXTS } from '../../../@consts/texts.consts';
@@ -32,17 +32,14 @@ import { AsyncPipe } from '@angular/common';
   imports: [IonTabBar, IonTabButton, IonIcon, IonLabel, TranslatePipe, NPTogglePanelComponent, NPPadPanelComponent, NPMpcPadComponent, UIOptionsPanelComponent, RollOptionsPanelComponent, ExtraOptionsPanelComponent, AudioOptionsPanelComponent, NPMidiDeviceInfoComponent, IonList, IonItem, IonSelect, IonSelectOption, AsyncPipe],
 })
 export class OptionsPanelComponent implements OnInit {
+  private readonly navService = inject(NavigateService);
+  private readonly dialogs = inject(DialogsService);
+  private readonly translate = inject(TranslateService);
+  readonly npPianoRoll = inject(NPPianoRollService);
+  readonly options = inject(OptionsService);
+
   CTEXTS = CTEXTS;
   @Input() tab: TOptionsTabs = 'roll';
-
-  constructor(
-    private readonly navService: NavigateService,
-    private readonly dialogs: DialogsService,
-    private readonly translate: TranslateService,
-    public readonly npPianoRoll: NPPianoRollService,
-    public readonly options: OptionsService,
-
-  ) { }
 
   ngOnInit() {
 

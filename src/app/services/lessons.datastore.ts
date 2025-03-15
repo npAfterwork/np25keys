@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {BehaviorSubject, Subscription} from 'rxjs';
 import {ENOTES} from '../../@np-components/@consts/np-note.consts';
@@ -12,6 +12,11 @@ import {ILesson, ILessonPack, ILessonPart, TInfoDisplayMode, TLoopMode, TMainDis
 
 @Injectable()
 export class LessonsDatastore {
+  protected readonly translate = inject(TranslateService);
+  protected readonly midiService = inject(NPMidiService);
+  protected readonly audioService = inject(NPAudioService);
+  protected readonly pianoRoll = inject(NPPianoRollService);
+
 
   private messageStore = new NPDataStore({
                                            leftInfo:  new BehaviorSubject<string>(''),
@@ -66,12 +71,7 @@ export class LessonsDatastore {
     '#332d0f',
   ];
 
-  constructor(
-    protected readonly translate: TranslateService,
-    protected readonly midiService: NPMidiService,
-    protected readonly audioService: NPAudioService,
-    protected readonly pianoRoll: NPPianoRollService,
-  ) {
+  constructor() {
     this.evSub = this.midiService.onMessage$.subscribe(ev => this.onMidiMessage(ev));
   }
 

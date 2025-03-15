@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostBinding, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, HostBinding, Input, OnInit, inject } from '@angular/core';
 import { CCSS_VAR_LINE_COUNT, CCSS_VAR_LINE_HEIGHT } from '../../../@consts/np-audio.consts';
 
 @Component({
@@ -7,16 +7,14 @@ import { CCSS_VAR_LINE_COUNT, CCSS_VAR_LINE_HEIGHT } from '../../../@consts/np-a
     styleUrls: ['./np-retro-display.component.scss'],
 })
 export class NPRetroDisplayComponent implements OnInit {
+  private readonly elementRef = inject(ElementRef);
+
   @Input() multiline = false;
   @Input() minLines = 1;
   @Input() maxLines = 10;
   @Input() lineHeight = 25;
   @HostBinding('class.backlight') @Input() backlight = true;
   @HostBinding('class.scanlines') @Input() scanlines = true;
-
-  constructor(
-    private readonly elementRef: ElementRef
-  ) { }
 
   ngOnInit() {}
 

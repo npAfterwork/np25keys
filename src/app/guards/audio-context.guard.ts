@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { UrlTree } from '@angular/router';
 import {Observable} from 'rxjs';
 import {NPAudioService} from '../../@np-components/services/np-audio/np-audio.service';
@@ -8,11 +8,8 @@ import {CINSTRUMENTS, CMETRONOME} from '../@consts/app.consts';
               providedIn: 'root'
             })
 export class AudioContextGuard  {
+  private readonly audioService = inject(NPAudioService);
 
-  constructor(
-    private readonly audioService: NPAudioService,
-  ) {
-  }
 
   canActivate(): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this.audioService.initialize(CINSTRUMENTS.PIANO, CMETRONOME);

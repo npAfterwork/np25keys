@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { AlertController } from '@ionic/angular/standalone';
 import { TranslateService } from '@ngx-translate/core';
 import { TTextID } from '../../@np-components/@types/np.types';
@@ -7,12 +7,9 @@ import { TTextID } from '../../@np-components/@types/np.types';
               providedIn: 'root'
             })
 export class DialogsService {
+  private readonly alertController = inject(AlertController);
+  private readonly translate = inject(TranslateService);
 
-  constructor(
-    private readonly alertController: AlertController,
-    private readonly translate: TranslateService
-  ) {
-  }
 
   async presentInfo(infoID: TTextID) {
       const message = this.translate.instant(infoID)

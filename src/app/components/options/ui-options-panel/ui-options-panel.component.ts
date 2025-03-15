@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { NPPianoRollService } from '../../../../@np-components/services/np-audio/np-piano-roll.service';
 import { CTEXTS } from '../../../@consts/texts.consts';
 import { DialogsService } from '../../../services/dialogs.service';
@@ -16,13 +16,11 @@ import { AsyncPipe } from '@angular/common';
   styleUrls: ['./ui-options-panel.component.scss'], imports: [IonList, NPOptionsToggleComponent, FormsModule, AsyncPipe],
 })
 export class UIOptionsPanelComponent implements OnInit {
-  CTEXTS = CTEXTS;
+  readonly npPianoRoll = inject(NPPianoRollService);
+  readonly options = inject(OptionsService);
+  private readonly dialogs = inject(DialogsService);
 
-  constructor(
-    public readonly npPianoRoll: NPPianoRollService,
-    public readonly options: OptionsService,
-    private readonly dialogs: DialogsService
-  ) { }
+  CTEXTS = CTEXTS;
 
   ngOnInit() {
   }
